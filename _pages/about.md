@@ -8,12 +8,6 @@ redirect_from:
   - /about.html
 ---
 
-<p align="center">
-
-  <img src="https://macwiatrak.github.io/files/profile_pic_buni_jezerce.HEIC" alt="Photo" style="width: 450px;"/> 
-
-</p>
-
 * I am a PhD student at [Cambridge Centre for AI in Medicine (CCAIM), University of Cambridge](https://ccaim.cam.ac.uk/), where I am supervised by [Prof. Andres Floto](http://www.med.cam.ac.uk/floto/), [Dr Sarah Teichmann](https://www.sanger.ac.uk/person/teichmann-sarah/) and [Prof. Mihaela van der Schaar](https://www.vanderschaar-lab.com/prof-mihaela-van-der-schaar/).
 * My research interests lie broadly at the intersection of machine learning and biology. I leverage ML methods to better understand causes of diseases using and integrating various data sources and modalities.
 * Previously I spent almost three years as a Machine Learning Engineer and squad lead at BenevolentAI, a pharma company leveraging AI for drug discovery. While at BenevolentAI I had the opportunity to work on various ML projects with an amazing and diverse group of people, including biologists, chemists, software engineers and AI Scientists.
