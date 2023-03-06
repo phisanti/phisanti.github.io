@@ -1,6 +1,6 @@
 ---
-title: "Analysing tweeter sentiment and topics"
-excerpt: "A fun tool to grasp the moody mood of the twitter world<br/><img src='https://github.com/phisanti/tw_feeds/blob/master/app/test/example.jpg'>"
+title: "Analysing twitter sentiment and topics"
+excerpt: "A fun tool to grasp the moody mood of the twitter world"
 collection: portfolio
 ---
 
@@ -14,6 +14,6 @@ Finally, the tool is designed to run once a day on schedule, which might be very
 
 You can download the code at my [github](https://github.com/phisanti/tw_feeds).
 
-You can also see the a sample report ![here](https://github.com/phisanti/tw_feeds/blob/master/app/test/example.jpg)
+You can also see the a sample report ![here](https://github.com/phisanti/tw_feeds/blob/master/app/test/example.jpg?raw=true)
 
 
