@@ -11,30 +11,22 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* Ph.D in Medical Science, University of Cambridge (UK), (2017/Sep-2021/Nov).
+* M.S. in Molecular Biology & Biotechnology, University of Groninge (NL), (2014-2016)
+* B.S. Biology, Universidad Autónoma de Madrid (SP), (2008-2014)
 
-Work experience
+Other training
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* Advance Statistics for Data Science, John Hopkins (USA), (2022)
+* Design & Interpretation Clinical Trials, John Hopkins (USA), (2022)
+* B.S. Biology, Universidad Autónoma de Madrid, (2008-2014)
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
-Skills
+Research Experience
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Research associate, Bryant Lab (2023-Present)
+* PhD/Research associate, Floto Lab (2017-2022)
+* Research assistant, Summers Lab (2016-2017)  
+* Student Intership, Kuipers Lab (2016)  
 
 Publications
 ======
@@ -53,7 +45,3 @@ Teaching
   <ul>{% for post in site.teaching %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
