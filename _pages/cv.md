@@ -9,6 +9,8 @@ redirect_from:
 
 {% include base_path %}
 
+You can find a link to my full CV [here](../files/20230308_CV_comp.pdf), but here is a briefing.
+
 Education
 ======
 * Ph.D in Medical Science, University of Cambridge (UK), (2017/Sep-2021/Nov).
@@ -31,17 +33,5 @@ Research Experience
 Publications
 ======
   <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
