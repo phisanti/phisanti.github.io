@@ -1,5 +1,5 @@
 ---
-title: "The "
+title: "The shiny milestone"
 excerpt: "Ah, the sweet satisfaction of completing a (mini) project. Today, I publish"
 collection: portfolio
 ---
