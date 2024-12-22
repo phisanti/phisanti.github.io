@@ -1,6 +1,7 @@
 ---
 title: "Shiny strikes back!"
 excerpt: "Shiny strikes back. A little bit over three weeks after publishing my first Shiny app, here comes my new creation freePrism! This app"
+date: 20-4-2023
 collection: portfolio
 ---
 Shiny strikes back. A little bit over three weeks after publishing my first Shiny app, here comes my new creation freePrism! This app was inspired by the statistical analysis software Prism. The idea was to provide a GUI tool to my colleagues so that they could perform basic statistical analysis with relative ease. In the app, I included tools to run a two-sample comparison, one-way and two-way ANOVA and linear regression models. In addition, it is also possible to produce ready-made plots to show the statistical contrast for publication and download them as PDFs in case it is necessary to keep working on them. 

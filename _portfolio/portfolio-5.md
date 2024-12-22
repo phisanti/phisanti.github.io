@@ -1,6 +1,7 @@
 ---
 title: "Building RMarkdown Reports from the CLI: A Tale of Persistence"
 excerpt: "R, the good, the bad. I've learned that R shines brightest in three areas: statistical analysis, data visualization, and report generation."
+date: 22-12-2024
 collection: portfolio
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: "The shiny milestone"
 excerpt: "Ah, the sweet satisfaction of completing a (mini) project. Today, I publish"
+date: 11-4-2023
 collection: portfolio
 ---
 
