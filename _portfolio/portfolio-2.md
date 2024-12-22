@@ -1,6 +1,7 @@
 ---
 title: "GPU cloud computing with Paperspace"
 excerpt: "This is a side-project that I developed because the limitation of training machine learning models in my local computer. As you may know, machine learning models often require a lot of computational power to run <br/><img src='/images/gradient_image_for_blog.png'>"
+date: 1-2-2023
 collection: portfolio
 ---
 
