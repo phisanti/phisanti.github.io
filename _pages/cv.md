@@ -25,6 +25,7 @@ Other training
 
 Research Experience
 ======
+* Postdoctoral researcher, Boeck Lab (2024-Present)
 * Research associate, Bryant Lab (2023-Present)
 * PhD/Research associate, Floto Lab (2017-2022)
 * Research assistant, Summers Lab (2016-2017)  
