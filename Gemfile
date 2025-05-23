@@ -24,4 +24,12 @@ group :jekyll_plugins do
   gem "jekyll-feed"
   gem 'jekyll-sitemap'
   gem 'hawkins'
+  gem "logger"
+  gem "csv"
+  gem "ostruct"
+  gem "base64"
+  gem 'webrick', '~> 1.8'
+  gem 'jemoji'
+  gem 'jekyll-redirect-from'
+  gem "bigdecimal"
 end

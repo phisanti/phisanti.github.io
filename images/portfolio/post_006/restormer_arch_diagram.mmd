@@ -1,0 +1,131 @@
+---
+config:
+  theme: base
+  themeVariables:
+    fontSize: 23px
+    fontFamily: arial
+  flowchart:
+    htmlLabels: true
+    padding: 15
+    rankSpacing: 20
+    nodeSpacing: 50
+---
+flowchart LR
+ subgraph PanelA["(A) Restormer UNet Architecture"]
+        dummyA[" "]:::dummy
+        dummyA --> Input[Input Image]
+        EncL1["Encoder L1 ↓"]
+        Input["Input Image"]
+        EncL2["Encoder L2 ↓"]
+        EncL3["Encoder L3 ↓"]
+        Latent["Latent Features"]
+        DecL3["Decoder L3 ↑"]
+        DecL2["Decoder L2 ↑"]
+        DecL1["Decoder L1 ↑"]
+        Refine["Refinement"]
+        Output["Restored Image"]
+  end
+ subgraph PanelB["(B) Multi-Dconv Head Transposed Attention (MDTA)"]
+        dummyB[" "]:::dummy
+        dummyB --> InputMDTA[Input Features]
+        QKV["Linear Projection"]
+        InputMDTA["Input Features"]
+        Q2["Query 1×1"]
+        K2["Key 1×1"]
+        V2["Value 1×1"]
+        DWQ2["DW-Conv 3×3"]
+        DWK2["DW-Conv 3×3"]
+        DWV2["DW-Conv 3×3"]
+        QOut@{ label: "Q'" }
+        KOut@{ label: "K'" }
+        VOut@{ label: "V'" }
+        Attention2@{ label: "Transposed Attention<br>Q'×K'ᵀ" }
+        Softmax["Softmax"]
+        MatMul["×"]
+        OutputMDTA["Output Features"]
+  end
+ subgraph PanelC["(C) Gated-Dconv Feed-Forward Network (GDFN)"]
+        dummyC[" "]:::dummy
+        dummyC --> InputGDFN[Input Features]
+        Linear1["Linear Layer"]
+        InputGDFN["Input Features"]
+        DWConv["DW-Conv 3×3"]
+        Split2["Split"]
+        Path1_2["Gate Path"]
+        Path2_2["Value Path"]
+        GELU2["GELU Activation"]
+        Multiply2["Element-wise ×"]
+        Linear2["Linear Layer"]
+        OutputGDFN["Output Features"]
+  end
+    Input --> EncL1
+    EncL1 --> EncL2
+    EncL2 --> EncL3
+    EncL3 --> Latent
+    Latent --> DecL3
+    DecL3 --> DecL2
+    DecL2 --> DecL1
+    DecL1 --> Refine
+    Refine --> Output
+    EncL1 -.-> DecL1
+    EncL2 -.-> DecL2
+    EncL3 -.-> DecL3
+    InputMDTA --> QKV
+    QKV --> Q2 & K2 & V2
+    Q2 --> DWQ2
+    K2 --> DWK2
+    V2 --> DWV2
+    DWQ2 --> QOut
+    DWK2 --> KOut
+    DWV2 --> VOut
+    QOut --> Attention2
+    KOut --> Attention2
+    Attention2 --> Softmax
+    Softmax --> MatMul
+    VOut --> MatMul
+    MatMul --> OutputMDTA
+    InputGDFN --> Linear1
+    Linear1 --> DWConv
+    DWConv --> Split2
+    Split2 --> Path1_2 & Path2_2
+    Path1_2 --> GELU2
+    GELU2 --> Multiply2
+    Path2_2 --> Multiply2
+    Multiply2 --> Linear2
+    Linear2 --> OutputGDFN
+    PanelA ~~~ PanelB
+    PanelB ~~~ PanelC
+    QOut@{ shape: rect}
+    KOut@{ shape: rect}
+    VOut@{ shape: rect}
+    Attention2@{ shape: rect}
+     EncL1:::encoderStyle
+     EncL2:::encoderStyle
+     EncL3:::encoderStyle
+     DecL3:::decoderStyle
+     DecL2:::decoderStyle
+     DecL1:::decoderStyle
+     QKV:::attentionStyle
+     Q2:::attentionStyle
+     K2:::attentionStyle
+     V2:::attentionStyle
+     DWQ2:::attentionStyle
+     DWK2:::attentionStyle
+     DWV2:::attentionStyle
+     Attention2:::attentionStyle
+     Softmax:::attentionStyle
+     Linear1:::gdfnStyle
+     DWConv:::gdfnStyle
+     Split2:::gdfnStyle
+     GELU2:::gdfnStyle
+     Multiply2:::gdfnStyle
+     Linear2:::gdfnStyle
+     PanelA:::panelStyle
+     PanelB:::panelStyle
+     PanelC:::panelStyle
+    classDef panelStyle fill:#f9f9f9,stroke:#333,stroke-width:2px
+    classDef encoderStyle fill:#e1f5fe,stroke:#0277bd,stroke-width:1px
+    classDef decoderStyle fill:#f3e5f5,stroke:#7b1fa2,stroke-width:1px
+    classDef attentionStyle fill:#fff3e0,stroke:#ef6c00,stroke-width:1px
+    classDef gdfnStyle fill:#e8f5e8,stroke:#2e7d32,stroke-width:1px
+    classDef dummy fill:none,stroke:none;

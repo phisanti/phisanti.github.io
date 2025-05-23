@@ -15,10 +15,10 @@ The Docker image is built on top of the nvidia/cuda base image, which means it i
 
 To use the Docker image, simply set this dockerfile as your image and choose the entrypoint.sh file as the entrypoint. This script takes care of starting the code-server and setting up the environment. When you get asked for the password, just copy the token from the URL.
 
-![config view](../images/paperspace_config_blogpost.png)
+![config view](/images/paperspace_config_blogpost.png)
 
 With this Docker image, you can now take advantage of the free GPU instances on Paperspace and run machine learning models without worrying about the computational power of your laptop. Happy coding!
 
-![sample view](../images/gradient_image_for_blog.png)
+![sample view](/images/gradient_image_for_blog.png)
 
 You can fork the repository and make your own varians to include your fav librares [here](https://github.com/phisanti/gradient-code-server)
