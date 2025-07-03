@@ -16,8 +16,7 @@ My surprise came when I took some metrics and saw that it was crazy fast and ver
     <img src="/images/portfolio/post_007/comprehensive_comparison.png" alt="Comprehensive Comparison" width="80%">
 </div>
 
-
-The end result was good (see the image below). First, I was very happy that the jump in frame 1 disappeared. Second, it was much faster, which really helped us in our analysis pipeline. Finally, the aligned images significantly improved our tracking. Given these good results, I decided to package it. Life is good when you follow your instincts; you never know where the rabbit hole will lead next.
+The end result was good (see the image below). First, I was very happy that the jump in frame 1 disappeared. Second, it was much faster, which really helped us in our analysis pipeline. Finally, the aligned images significantly improved our tracking. Given these good results, I decided to package it. You can download it from PyPI [here](https://pypi.org/project/templatematchingpy/) or if you want to see more details, you can check the [GitHub repository](https://github.com/phisanti/TemplateMatchingPy). Life is good when you follow your instincts; you never know where the rabbit hole will lead next.
 
 <div align="center">
     <img src="/images/portfolio/post_007/comparison.gif" alt="Drift Correction Example" width="70%">
