@@ -2,7 +2,6 @@
 title: "Analysing twitter sentiment and topics"
 excerpt: "A fun tool to grasp the moody mood of the twitter world"
 date: 2023-03-06
-collection: portfolio
 ---
 
 ## Analysing tweeter sentiment and topics

@@ -2,7 +2,6 @@
 title: "The shiny milestone"
 excerpt: "Ah, the sweet satisfaction of completing a (mini) project. Today, I publish"
 date: 2023-04-11
-collection: portfolio
 ---
 
 Ah, the sweet satisfaction of completing a (mini) project. Today, I publish my first R Shiny app. It is just a simple tool to automate data analysis for my colleagues and it took me  half a day, so I'm quite proud. But let's be honest, working with Shiny is sometimes a walk in the park. In fact, at times, it can feel like you're walking through a dense forest with no clear path in sight.

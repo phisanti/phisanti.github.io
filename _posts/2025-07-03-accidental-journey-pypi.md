@@ -2,7 +2,6 @@
 title: "Down the Rabbit Hole: My Accidental Journey to PyPI"
 excerpt: "The other day, I was dragged into the rabbit hole of a bug that does not let you sleep..."
 date: 2025-07-03
-collection: portfolio
 ---
 The other day, I was dragged into the rabbit hole of a bug that does not let you sleep. In my work, I am facing the task of processing a gigaton of microscope images while tracking a dizzy array of tiny objects, all complicated by a microscope camera that drifts unpredictably. The constant need for precise image registration to correct this drift quickly became a critical issue.
 

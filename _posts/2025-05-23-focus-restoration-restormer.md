@@ -2,7 +2,6 @@
 title: "Focus restoration with restormer"
 excerpt: "Image restoration made easy"
 date: 2025-05-23
-collection: portfolio
 ---
 
 ## Intro
@@ -115,3 +114,4 @@ Implementing Restormer for MONAI taught me several valuable lessons:
 ## Conclusion and Future Work
 
 Contributing to MONAI with this Restormer implementation has been one of the most satisfying projects I've tackled recently. The model now lives in the MONAI codebase where others can use it for various medical image restoration tasks beyond my application.
+

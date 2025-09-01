@@ -2,7 +2,6 @@
 title: "CodeDjinn: Engineering Simplicity in the Age of AI Complexity"
 excerpt: "This weekend I managed to finish a very fun project! I think there are two kinds of bioinformaticians: computer scientists that for one reason or another get into biology..."
 date: 2025-07-28
-collection: portfolio
 ---
 
 # CodeDjinn: Engineering Simplicity in the Age of AI Complexity
