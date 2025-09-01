@@ -1,0 +1,224 @@
+/* ==========================================================================
+   MODERN TYPOGRAPHY & PROFESSIONAL ENHANCEMENTS
+   ========================================================================== */
+
+/* Import modern font stack */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Typography improvements */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-feature-settings: 'cv01', 'cv03', 'cv04', 'cv11';
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code, pre, .highlight {
+  font-family: 'JetBrains Mono', 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-feature-settings: 'calt';
+}
+
+/* Professional heading styles */
+.page__title,
+.archive__item-title,
+.page__content h1 {
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--global-text-color);
+}
+
+.page__content {
+  h2 {
+    border-bottom: 2px solid var(--global-link-color);
+    padding-bottom: 0.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+  
+  h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--global-link-color);
+  }
+  
+  p {
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+  }
+  
+  ul, ol {
+    margin-bottom: 1.25rem;
+    
+    li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+  }
+  
+  blockquote {
+    border-left: 4px solid var(--global-link-color);
+    background: var(--global-code-background-color);
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    border-radius: 0 $border-radius $border-radius 0;
+    font-style: italic;
+    color: var(--global-text-color-light);
+    
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* Enhanced author bio styling */
+.author__bio {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: var(--global-text-color-light);
+}
+
+/* Modern list styling in sidebar */
+.author__urls {
+  list-style: none;
+  padding: 0;
+  
+  .author__urls-wrapper {
+    position: relative;
+  }
+  
+  li {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  a {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: $border-radius;
+    transition: $global-transition;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    
+    i {
+      margin-right: 0.75rem;
+      width: 1.25rem;
+      color: var(--global-link-color);
+    }
+    
+    &:hover {
+      background: var(--global-hover-bg);
+      transform: translateX(4px);
+      color: var(--global-link-color);
+    }
+  }
+}
+
+/* Publication and portfolio styling */
+.archive__item {
+  position: relative;
+  
+  .archive__item-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    
+    a {
+      color: var(--global-text-color);
+      text-decoration: none;
+      
+      &:hover {
+        color: var(--global-link-color);
+      }
+    }
+  }
+  
+  .archive__item-excerpt {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--global-text-color-light);
+    margin-bottom: 1rem;
+  }
+  
+  .archive__item-teaser {
+    border-radius: $border-radius;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    box-shadow: $box-shadow;
+    
+    img {
+      transition: $global-transition;
+    }
+    
+    &:hover img {
+      transform: scale(1.02);
+    }
+  }
+}
+
+/* Enhanced navigation */
+.greedy-nav {
+  a {
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    transition: $global-transition;
+    
+    &:hover {
+      color: var(--global-link-color);
+    }
+  }
+  
+  .site-title {
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: -0.025em;
+  }
+}
+
+/* Modern pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  
+  a, span {
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: $border-radius;
+    font-weight: 500;
+    text-decoration: none;
+    transition: $global-transition;
+    
+    &:hover {
+      background: var(--global-hover-bg);
+      color: var(--global-link-color);
+    }
+  }
+  
+  .current {
+    background: var(--global-link-color);
+    color: white;
+  }
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+  
+  .page__title,
+  .archive__item-title {
+    font-size: 1.5rem;
+  }
+  
+  .page__content h2 {
+    font-size: 1.25rem;
+  }
+}

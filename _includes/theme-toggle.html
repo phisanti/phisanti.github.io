@@ -1,0 +1,109 @@
+<!-- Theme Toggle Button -->
+<div class="theme-toggle-wrapper">
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+    <i class="fas fa-sun theme-toggle__icon theme-toggle__icon--light" aria-hidden="true"></i>
+    <i class="fas fa-moon theme-toggle__icon theme-toggle__icon--dark" aria-hidden="true"></i>
+  </button>
+</div>
+
+<style>
+.theme-toggle-wrapper {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+}
+
+.theme-toggle {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--global-link-color);
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.theme-toggle__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle__icon--light {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+}
+
+.theme-toggle__icon--dark {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(-180deg) scale(0);
+}
+
+[data-theme="dark"] .theme-toggle__icon--light {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(180deg) scale(0);
+}
+
+[data-theme="dark"] .theme-toggle__icon--dark {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+}
+
+@media (max-width: 768px) {
+  .theme-toggle-wrapper {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .theme-toggle {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .theme-toggle__icon {
+    font-size: 0.875rem;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+  
+  // Check for saved theme preference or default to 'light'
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  html.setAttribute('data-theme', savedTheme);
+  
+  themeToggle.addEventListener('click', function() {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Add a subtle haptic feedback effect
+    themeToggle.style.transform = 'translateY(-2px) scale(0.95)';
+    setTimeout(() => {
+      themeToggle.style.transform = '';
+    }, 150);
+  });
+});
+</script>

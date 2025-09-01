@@ -1,0 +1,87 @@
+/* ==========================================================================
+   MINIMAL CLEAN THEME - Santiago's Custom Theme
+   ========================================================================== */
+
+/* Modern Color Palette - Minimalist & Professional */
+$gray                       : #6b7280;
+$dark-gray                  : #374151;
+$darker-gray                : #1f2937;
+$light-gray                 : #9ca3af;
+$lighter-gray               : #f9fafb;
+
+/* Accent colors for a modern scientific look */
+$primary-blue               : #2563eb;
+$secondary-teal             : #059669;
+$accent-orange              : #ea580c;
+$danger-color               : #dc2626;
+$info-color                 : #0ea5e9;
+$notice-color               : #6b7280;
+$success-color              : #16a34a;
+$warning-color              : #d97706;
+
+/* Modern design system variables */
+$border-radius              : 8px;
+$border-radius-sm           : 4px;
+$border-radius-lg           : 12px;
+$box-shadow                 : 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$box-shadow-lg              : 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$global-transition          : all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$masthead-height            : 80px;
+$navicon-width              : 28px;
+$navicon-height             : 4px;
+$sidebar-link-max-width     : 280px;
+$sidebar-screen-min-width   : 1024px;
+
+/* Clean minimal light theme */
+:root {
+    --global-base-color                 : #{$gray};
+    --global-bg-color                   : #ffffff;
+    --global-footer-bg-color            : #{$lighter-gray};
+    --global-border-color               : #e5e7eb;
+    --global-dark-border-color          : #d1d5db;
+    --global-code-background-color      : #{$lighter-gray};
+    --global-code-text-color            : #{$darker-gray};
+    --global-fig-caption-color          : #{$light-gray};
+    --global-link-color                 : #{$primary-blue};
+    --global-link-color-hover           : #{$secondary-teal};
+    --global-link-color-visited         : #{mix($primary-blue, $dark-gray, 70%)};  
+    --global-masthead-link-color        : #{$dark-gray};
+    --global-masthead-link-color-hover  : #{$primary-blue};    
+    --global-text-color                 : #{$darker-gray};
+    --global-text-color-light           : #{$light-gray};
+    --global-thead-color                : #{$lighter-gray};
+    
+    /* Custom additions for modern feel */
+    --global-accent-color               : #{$accent-orange};
+    --global-secondary-color            : #{$secondary-teal};
+    --global-card-bg                    : #ffffff;
+    --global-card-border                : #f3f4f6;
+    --global-hover-bg                   : #{$lighter-gray};
+}
+
+/* Dark theme variant */
+[data-theme="dark"] {
+    --global-base-color                 : #{$light-gray};
+    --global-bg-color                   : #111827;
+    --global-footer-bg-color            : #0f172a;
+    --global-border-color               : #374151;
+    --global-dark-border-color          : #4b5563;
+    --global-code-background-color      : #1f2937;
+    --global-code-text-color            : #e5e7eb;
+    --global-fig-caption-color          : #{$light-gray};
+    --global-link-color                 : #60a5fa;
+    --global-link-color-hover           : #34d399;
+    --global-link-color-visited         : #a78bfa;
+    --global-masthead-link-color        : #f9fafb;
+    --global-masthead-link-color-hover  : #60a5fa;
+    --global-text-color                 : #f9fafb;
+    --global-text-color-light           : #{$light-gray};
+    --global-thead-color                : #374151;
+    
+    /* Dark theme custom additions */
+    --global-accent-color               : #fb7185;
+    --global-secondary-color            : #34d399;
+    --global-card-bg                    : #1f2937;
+    --global-card-border               : #374151;
+    --global-hover-bg                   : #374151;
+}

@@ -1,0 +1,76 @@
+/* ==========================================================================
+   SPACING FIX - Prevent content overlap with sidebar
+   ========================================================================== */
+
+/* Increase margin between sidebar and main content */
+.page__content {
+  margin-left: 1.5rem; // Add more space from sidebar
+  padding-left: 1rem; // Additional internal padding
+  
+  @media (min-width: 80em) {
+    margin-left: 2rem; // Even more space on larger screens
+    padding-left: 1.5rem; // More internal padding on larger screens
+  }
+}
+
+/* Ensure sidebar has proper spacing */
+.sidebar {
+  padding-right: 1.5rem; // Add padding to right side of sidebar
+  
+  @media (min-width: 80em) {
+    padding-right: 2rem; // More padding on larger screens
+  }
+}
+
+/* Adjust archive items to prevent overlap */
+.archive__item {
+  margin-left: 0.5rem; // Small additional offset for archive items
+}
+
+/* Specific fix for single page layout */
+.page__inner-wrap {
+  .page__content {
+    margin-left: 2rem; // More space for single pages
+    padding-left: 1.5rem; // Additional internal padding
+    
+    @media (min-width: 80em) {
+      margin-left: 2.5rem; // Even more space on large screens
+      padding-left: 2rem; // More internal padding on large screens
+    }
+  }
+}
+
+/* Additional layout container fixes */
+.layout--single {
+  .sidebar {
+    padding-right: 2rem; // More padding in single layout
+  }
+}
+
+/* Grid layout adjustments */
+@media (min-width: 64em) {
+  .page {
+    display: grid;
+    grid-template-columns: 300px 1fr; // Fixed sidebar width, flexible content
+    grid-gap: 2rem; // Gap between sidebar and content
+  }
+}
+
+/* Mobile adjustments - no overlap issues on mobile */
+@media (max-width: 63.9375em) {
+  .page__content {
+    margin-left: 0; // Reset margins on mobile
+  }
+  
+  .sidebar {
+    padding-right: 0; // Reset sidebar padding on mobile
+  }
+  
+  .archive__item {
+    margin-left: 0; // Reset archive item margins on mobile
+  }
+  
+  .page__inner-wrap .page__content {
+    margin-left: 0; // Reset single page margins on mobile
+  }
+}
