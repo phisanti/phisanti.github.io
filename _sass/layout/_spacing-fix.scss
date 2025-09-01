@@ -2,8 +2,9 @@
    SPACING FIX - Prevent content overlap with sidebar
    ========================================================================== */
 
-/* Increase margin between sidebar and main content */
-.page__content {
+/* Increase margin between sidebar and main content - but NOT for single posts */
+.archive .page__content,
+.page__content:not(.single-post) {
   margin-left: 1.5rem; // Add more space from sidebar
   padding-left: 1rem; // Additional internal padding
   
@@ -11,6 +12,13 @@
     margin-left: 2rem; // Even more space on larger screens
     padding-left: 1.5rem; // More internal padding on larger screens
   }
+}
+
+/* Single post pages should have normal width */
+.layout--single .page__content {
+  margin-left: 0; // Reset margins for single posts
+  padding-left: 0; // Reset padding for single posts
+  max-width: none; // Allow full width
 }
 
 /* Ensure sidebar has proper spacing */
@@ -27,16 +35,14 @@
   margin-left: 0.5rem; // Small additional offset for archive items
 }
 
-/* Specific fix for single page layout */
-.page__inner-wrap {
-  .page__content {
-    margin-left: 2rem; // More space for single pages
-    padding-left: 1.5rem; // Additional internal padding
-    
-    @media (min-width: 80em) {
-      margin-left: 2.5rem; // Even more space on large screens
-      padding-left: 2rem; // More internal padding on large screens
-    }
+/* Archive pages need more spacing, but single posts should be normal */
+.layout--archive .page__inner-wrap .page__content {
+  margin-left: 2rem; // More space for archive pages
+  padding-left: 1.5rem; // Additional internal padding
+  
+  @media (min-width: 80em) {
+    margin-left: 2.5rem; // Even more space on large screens
+    padding-left: 2rem; // More internal padding on large screens
   }
 }
 
@@ -47,19 +53,26 @@
   }
 }
 
-/* Grid layout adjustments */
+/* Grid layout adjustments - only for archive pages, not single posts */
 @media (min-width: 64em) {
-  .page {
+  .layout--archive .page {
     display: grid;
     grid-template-columns: 300px 1fr; // Fixed sidebar width, flexible content
     grid-gap: 2rem; // Gap between sidebar and content
+  }
+  
+  /* Single posts should use normal flexbox layout */
+  .layout--single .page {
+    display: block; // Reset grid for single posts
   }
 }
 
 /* Mobile adjustments - no overlap issues on mobile */
 @media (max-width: 63.9375em) {
-  .page__content {
+  .page__content,
+  .layout--archive .page__inner-wrap .page__content {
     margin-left: 0; // Reset margins on mobile
+    padding-left: 0; // Reset padding on mobile
   }
   
   .sidebar {
@@ -70,7 +83,7 @@
     margin-left: 0; // Reset archive item margins on mobile
   }
   
-  .page__inner-wrap .page__content {
-    margin-left: 0; // Reset single page margins on mobile
+  .layout--archive .page {
+    display: block; // Reset grid on mobile
   }
 }
