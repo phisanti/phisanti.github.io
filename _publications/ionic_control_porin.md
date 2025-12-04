@@ -2,7 +2,7 @@
 title: "Ionic control of porin permeability in bacteria."
 collection: publications
 permalink: /publication/ionic_control_porin
-excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
+excerpt: 'Here we show, in Escherichia coli, that porin permeability is controlled by changes in periplasmic ions, inhibited by periplasmic acidification, ...'
 date: 2022-07-13
 venue: 'BioarXiv'
 paperurl: 'https://www.biorxiv.org/content/10.1101/2022.07.13.499887v1.full'

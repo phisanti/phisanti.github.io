@@ -16,8 +16,7 @@ redirect_from:
 
 Recent News
 ===
+* My PhD main thesis work was published in [Nature Microbilogy](https://www.nature.com/articles/s41564-025-02175-5). [24-11-25]
 * I joined the Boeck Lab in Switzerland to develop a automatic image analysis pipeline to track antibiotic killing with microscopy. [01-01-24]
 * I joined the Bryant Lab to develop lung-on-a-chip for the study of chronic infection. [09-01-23]
 * I was awarded the Sandpit Cambridge Infectious Diseases award (£10.000) in cooperation with Felicity Crawsay-Williams, Daniel Bulh, Tomás Kappes and Pei-Yu Hsieh to develop smart probiotic therapies. [14-02-22]
-* I received my doctoral degree in Scientific Medicine by the University of Cambridge. Thanks Flotolab! [30-11-21]
-* I was invited to the Instituto Potosino the Ciencia y Tecnologia [IPCyT](https://ipicyt.edu.mx/) to teach statistics and data analysis with R. [14-06-19]
