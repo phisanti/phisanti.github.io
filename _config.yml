@@ -25,8 +25,8 @@ author:
   avatar           : "profile.png"
   name             : "Santiago Cano-Muniz"
   pronouns         : # example: "she/her"  
-  bio              : "Postdoctoral researcher in infectious diseases @ University Hospital of Basel, CH (Boeck Lab). Biology + Data Science = 💣"
-  location         : "Basel, CH"
+  bio              : "AI Bioinformatics @ BigOmics, Lugano, CH. Biology + Data Science = 💣"
+  location         : "Lugano, CH"
   employer         :
   uri              : # URL
   email            : "santiago.e.canomuiz@gmail.com" 
@@ -160,6 +160,7 @@ include:
   - _pages
   - files
 exclude:
+  - "_drafts/*.pptx"
   - "*.sublime-project"
   - "*.sublime-workspace"
   - .asset-cache
