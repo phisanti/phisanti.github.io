@@ -1,0 +1,31 @@
+# Jekyll build output
+_site/
+
+# Jekyll cache
+.jekyll-cache/
+.jekyll-metadata
+
+# Sass cache
+.sass-cache/
+
+# Drafts (working files, not for publication)
+_drafts/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Ruby
+.bundle/
+vendor/
+.ruby-version
+
+# Node
+node_modules/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
