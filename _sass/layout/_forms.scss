@@ -19,7 +19,7 @@ form {
     padding: 0;
     color: var(--global-text-color);
     border: 0;
-    border-bottom: 1px solid mix(#fff, #000, 80%);
+    border-bottom: 1px solid var(--global-border-color);
     white-space: normal;
   }
 
@@ -80,8 +80,8 @@ select {
   padding: 0.25em;
   margin-bottom: 0.5em;
   color: var(--global-text-color);
-  background-color: #fff;
-  border: 1px solid mix(#fff, #000, 80%);
+  background-color: var(--global-card-bg);
+  border: 1px solid var(--global-border-color);
   border-radius: $border-radius;
   box-shadow: $box-shadow;
 
@@ -151,7 +151,7 @@ input[type="file"] {
 
 select {
   width: auto;
-  background-color: #fff;
+  background-color: var(--global-card-bg);
 }
 
 select[multiple],

@@ -26,7 +26,9 @@ $navicon-height             : 4px;
 $sidebar-link-max-width     : 250px;
 $sidebar-screen-min-width   : 1024px;
 
-/* Default light theme for the site */
+/* NOTE: SUPERSEDED. The active palette lives in theme/_minimal.scss, which is
+   imported after this file and overrides every --global-* below. Edit colours
+   THERE, not here. This block is kept only as a structural fallback. */
 :root {
     --global-base-color                 : #{$gray};
     --global-bg-color                   : #fff;

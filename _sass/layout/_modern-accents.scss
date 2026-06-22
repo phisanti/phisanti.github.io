@@ -69,9 +69,9 @@ select:focus {
     transition: $global-transition;
     
     &:hover {
-      background: var(--global-link-color);
-      color: white;
-      border-color: var(--global-link-color);
+      background: var(--global-base-color);
+      color: var(--global-btn-text-color);
+      border-color: var(--global-base-color);
       transform: translateY(-1px);
     }
   }

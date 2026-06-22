@@ -1,192 +1,226 @@
 /* ==========================================================================
-   MODERN TYPOGRAPHY & PROFESSIONAL ENHANCEMENTS
+   MODERN TYPOGRAPHY — humanist serif (EB Garamond)
    ========================================================================== */
 
-/* Import modern font stack */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+/* Fonts (EB Garamond + JetBrains Mono) are loaded via <link> in
+   _includes/head/custom.html — a mid-imported @import would end up
+   misplaced in the compiled stylesheet and is render-blocking. */
 
-/* Typography improvements */
+/* Body — serif everywhere */
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-feature-settings: 'cv01', 'cv03', 'cv04', 'cv11';
+  font-family: $global-font-family;
+  font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+  font-size: 1.0625rem;          /* EB Garamond runs small; nudge up */
+  line-height: 1.65;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code, pre, .highlight {
-  font-family: 'JetBrains Mono', 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', Consolas, 'Courier New', monospace;
-  font-feature-settings: 'calt';
+@include breakpoint($medium) {
+  body { font-size: 1.125rem; }
 }
 
-/* Professional heading styles */
+code, pre, .highlight {
+  font-family: $monospace;
+  font-feature-settings: "calt" 1;
+  /* lining (tabular-friendly) figures inside code */
+  font-variant-numeric: lining-nums;
+}
+
+/* Headings — serif, classic tracking (no negative letter-spacing) */
+h1, h2, h3, h4, h5, h6,
+.page__title,
+.archive__item-title {
+  font-family: $header-font-family;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
 .page__title,
 .archive__item-title,
 .page__content h1 {
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0;
   color: var(--global-text-color);
 }
 
+/* Main reading content */
 .page__content {
+  /* Constrained book-like measure for long-form prose */
+  font-size: 1.0625em;
+
   h2 {
-    border-bottom: 2px solid var(--global-link-color);
-    padding-bottom: 0.5rem;
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--global-border-color);
+    padding-bottom: 0.4rem;
+    margin-top: 2.6rem;
+    margin-bottom: 1.4rem;
     font-weight: 600;
   }
-  
+
   h3 {
     margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.9rem;
     font-weight: 600;
-    color: var(--global-link-color);
+    color: var(--global-text-color);
   }
-  
+
   p {
-    margin-bottom: 1.25rem;
-    line-height: 1.7;
+    margin-bottom: 1.3rem;
+    line-height: 1.75;
   }
-  
+
   ul, ol {
-    margin-bottom: 1.25rem;
-    
+    margin-bottom: 1.3rem;
+
     li {
-      margin-bottom: 0.5rem;
-      line-height: 1.6;
+      margin-bottom: 0.4rem;
+      line-height: 1.7;
     }
   }
-  
+
   blockquote {
-    border-left: 4px solid var(--global-link-color);
-    background: var(--global-code-background-color);
-    margin: 1.5rem 0;
-    padding: 1rem 1.5rem;
+    border-left: 3px solid var(--global-accent-color);
+    background: var(--global-hover-bg);
+    margin: 1.6rem 0;
+    padding: 0.9rem 1.4rem;
     border-radius: 0 $border-radius $border-radius 0;
     font-style: italic;
     color: var(--global-text-color-light);
-    
+
     p:last-child {
       margin-bottom: 0;
     }
   }
 }
 
-/* Enhanced author bio styling */
+/* Narrow the reading column on wide screens (fin.ai / noumena feel).
+   The grid still reserves the sidebar; this only caps the prose measure. */
+@include breakpoint($large) {
+  .page__content,
+  .page__title,
+  .page__meta,
+  .page__lead,
+  .page__share,
+  .page__taxonomy {
+    max-width: 44rem;
+  }
+}
+
+/* Author bio in sidebar */
 .author__bio {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 1rem;
   color: var(--global-text-color-light);
 }
 
-/* Modern list styling in sidebar */
+/* Sidebar link list */
 .author__urls {
   list-style: none;
   padding: 0;
-  
+
   .author__urls-wrapper {
     position: relative;
   }
-  
+
   li {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
   }
-  
+
   a {
     display: flex;
     align-items: center;
-    padding: 0.5rem 0.75rem;
+    padding: 0.45rem 0.7rem;
     border-radius: $border-radius;
     transition: $global-transition;
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.875rem;
-    
+    font-size: 0.95rem;
+
     i {
-      margin-right: 0.75rem;
+      margin-right: 0.7rem;
       width: 1.25rem;
-      color: var(--global-link-color);
+      color: var(--global-accent-color);
     }
-    
+
     &:hover {
       background: var(--global-hover-bg);
-      transform: translateX(4px);
+      transform: translateX(3px);
       color: var(--global-link-color);
     }
   }
 }
 
-/* Publication and portfolio styling */
+/* Publication / portfolio listing items */
 .archive__item {
   position: relative;
-  
+
   .archive__item-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-    
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+
     a {
       color: var(--global-text-color);
       text-decoration: none;
-      
+
       &:hover {
         color: var(--global-link-color);
       }
     }
   }
-  
+
   .archive__item-excerpt {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.65;
     color: var(--global-text-color-light);
     margin-bottom: 1rem;
   }
-  
+
   .archive__item-teaser {
     border-radius: $border-radius;
     overflow: hidden;
     margin-bottom: 1rem;
     box-shadow: $box-shadow;
-    
+
     img {
       transition: $global-transition;
     }
-    
+
     &:hover img {
       transform: scale(1.02);
     }
   }
 }
 
-/* Enhanced navigation */
+/* Navigation */
 .greedy-nav {
   a {
     font-weight: 500;
-    letter-spacing: 0.025em;
+    letter-spacing: 0.01em;
     transition: $global-transition;
-    
+
     &:hover {
-      color: var(--global-link-color);
+      color: var(--global-masthead-link-color-hover);
     }
   }
-  
+
   .site-title {
     font-weight: 700;
-    font-size: 1.25rem;
-    letter-spacing: -0.025em;
+    font-size: 1.35rem;
+    letter-spacing: 0;
   }
 }
 
-/* Modern pagination */
+/* Pagination */
 .pagination {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 2rem 0;
-  
+
   a, span {
     padding: 0.5rem 1rem;
     margin: 0 0.25rem;
@@ -194,31 +228,27 @@ code, pre, .highlight {
     font-weight: 500;
     text-decoration: none;
     transition: $global-transition;
-    
+
     &:hover {
       background: var(--global-hover-bg);
       color: var(--global-link-color);
     }
   }
-  
+
   .current {
-    background: var(--global-link-color);
-    color: white;
+    background: var(--global-accent-color);
+    color: var(--global-btn-text-color);
   }
 }
 
-/* Responsive typography */
+/* Responsive type */
 @media (max-width: 768px) {
-  body {
-    font-size: 16px;
-  }
-  
   .page__title,
   .archive__item-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
-  
+
   .page__content h2 {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
   }
 }

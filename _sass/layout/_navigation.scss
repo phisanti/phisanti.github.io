@@ -92,7 +92,7 @@
       }
 
       &.current {
-        color: #fff;
+        color: var(--global-btn-text-color);
         background: var(--global-base-color);
       }
 
@@ -268,8 +268,8 @@
     padding: 5px;
     border: 1px solid var(--global-border-color);
     border-radius: $border-radius;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(#000, 0.25);
+    background: var(--global-panel-bg);
+    box-shadow: 0 4px 16px var(--global-shadow-color);
 
     a {
       margin: 0;
@@ -303,7 +303,7 @@
       width: 0;
       border-style: solid;
       border-width: 0 10px 10px;
-      border-color: #fff transparent;
+      border-color: var(--global-panel-bg) transparent;
       display: block;
       z-index: 1;
     }
@@ -345,13 +345,13 @@
     margin-left: -0.5em;
     padding-left: 0.5em;
     padding-right: 0.5em;
-    color: #fff;
+    color: var(--global-btn-text-color);
     font-weight: bold;
     background: var(--global-base-color);
     border-radius: $border-radius;
 
     &:hover {
-      color: #fff;
+      color: var(--global-btn-text-color);
     }
   }
 }
@@ -385,13 +385,13 @@
   color: var(--global-text-color-light);
   text-transform: uppercase;
   letter-spacing: 1px;
-  background-color: #fff;
+  background-color: var(--global-panel-bg);
   border: 1px solid var(--global-border-color);
   border-radius: $border-radius;
   box-shadow: $box-shadow;
 
   .nav__title {
-    color: #fff;
+    color: var(--global-btn-text-color);
     font-size: $type-size-6;
     background: var(--global-base-color);
     border-top-left-radius: $border-radius;
@@ -417,8 +417,8 @@
     text-decoration-line: none !important;
 
     &:hover {
-      color: #000;
-      background: var(--global-link-color-hover);
+      color: var(--global-btn-text-color);
+      background: var(--global-base-color);
     }
   }
 

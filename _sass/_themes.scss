@@ -13,21 +13,21 @@ $doc-font-size              : 16;
 $paragraph-indent           : false; // true, false (default)
 $indent-var                 : 1.3em;
 
-/* System typefaces */
-$serif                      : Georgia, Times, serif;
+/* Humanist serif typefaces (EB Garamond loaded via @import in _modern-typography.scss) */
+$garamond                   : "EB Garamond", Garamond, Cambria, "Georgia", "Times New Roman", serif;
+$serif                      : $garamond;
 $sans-serif                 : -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-$monospace                  : Monaco, Consolas, "Lucida Console", monospace;
+$monospace                  : "JetBrains Mono", "SF Mono", Monaco, Consolas, "Lucida Console", monospace;
 
-/* Sans serif typefaces */
+/* Sans serif typefaces (kept for the few UI affordances that need them) */
 $sans-serif-narrow          : $sans-serif;
 $helvetica                  : Helvetica, "Helvetica Neue", Arial, sans-serif;
 
-/* Serif typefaces */
+/* Other serif fallbacks (legacy) */
 $georgia                    : Georgia, serif;
 $times                      : Times, serif;
 $bodoni                     : "Bodoni MT", serif;
 $calisto                    : "Calisto MT", serif;
-$garamond                   : Garamond, serif;
 
 /* Type scale */
 $type-size-1                : 2.441em;  // ~39.056px
@@ -39,8 +39,8 @@ $type-size-6                : 0.75em;   // ~12px
 $type-size-7                : 0.6875em; // ~11px
 $type-size-8                : 0.625em;  // ~10px
 
-$global-font-family         : $sans-serif;
-$header-font-family         : $sans-serif;
+$global-font-family         : $serif;
+$header-font-family         : $serif;
 $caption-font-family        : $serif;
 
 /* ==========================================================================

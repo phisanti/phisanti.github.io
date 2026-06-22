@@ -16,10 +16,10 @@
   font-family: $global-font-family;
   font-size: $type-size-6 !important;
   text-indent: initial; /* override*/
-  background-color: mix(#fff, $notice-color, 90%);
+  background-color: var(--global-hover-bg);
   border-radius: $border-radius;
   box-shadow: 0 1px 1px rgba($notice-color, 0.25);
-  color: var(--global-code-text-color);
+  color: var(--global-text-color);
 
   h4 {
     margin-top: 0 !important; /* override*/
@@ -53,7 +53,7 @@
   }
 
   code {
-    background-color: mix(#fff, $notice-color, 95%)
+    background-color: var(--global-code-background-color);
   }
 
   ul {
