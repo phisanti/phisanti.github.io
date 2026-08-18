@@ -4,30 +4,17 @@
 # links. Removing a link prevents it from showing in the header, but does not
 # prevent it from being included in the site.
 #
-# NOTE that only one of the CV options should be selected, the first is for the
-#      Markdown formatted page while the second is generated using JSON.
+# Blog leads: it is the only thing that grows an audience. Projects and
+# Publications are the credibility artefacts. About carries the background.
+# Talks and Teaching still build at /talks/ and /teaching/ but are not in the
+# nav — too thin to earn a slot.
 
 main:
-  - title: "Publications"
-    url: /publications/
-
-  - title: "Talks"
-    url: /talks/
-
-  - title: "Teaching"
-    url: /teaching/
-
-  # - title: "Portfolio"
-  #   url: /portfolio/
-
-  - title: "Blog Posts"
+  - title: "Blog"
     url: /year-archive/
 
-  - title: "CV"
-    url: /cv/
-    
-  # - title: "CV"
-  #   url: /cv-json/
-    
-  # - title: "Guide"
-  #   url: /markdown/
+  - title: "Projects"
+    url: /portfolio/
+
+  - title: "Publications"
+    url: /publications/

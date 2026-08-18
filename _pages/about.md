@@ -1,21 +1,38 @@
 ---
 permalink: /
 title: "About me"
-excerpt: "About me"
+excerpt: "Biologist and bioinformatician building open-source R tooling for omics data analysis. Notes on R, multi-omics, and reproducible science."
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
+  - /cv/
+  - /resume
 ---
 
-* I am a Postdoctoral researcher at [BoeckLab](https://biomedizin.unibas.ch/en/research/research-groups/boeck-lab/). There, I am developing a Deep learning image analysis pipeline to track antibiotic killing with microscopy.
-* My research interest lies broadly in the intersection between machine learning models, causal inference, and infectious diseases. I dig into complex datasets to find meaningful patterns, which I then convey using the power of metaphor and aesthetic visuals.
-* I recently completed my PhD at Flotolab where I employed cutting edge microfluidic devices coupled with advanced ML detection and tracking techniques to show the coordination of bacterial metabolism and membrane permeability. In a nutshell, my findings suggest that bacteria cannot "eat" and "breathe" at the same time.
-* Prior to this, I obtained my MSc on Molecular Biology & Biotechnology at [University of Groningen](https://www.rug.nl/?lang=en) where I received the Honours College. Before that, I did my Bachelor at the [Universidad Autónoma de Madrid](https://www.uam.es/uam/inicio).
-* Beyond my interest in ML and infectious diseases, I am also very interested in the application of new language ML models in the field of meta-analysis and meta-research.
+**The biology is the hard part.**
+
+Currently, I am working on giving agents the capabilities to analyse real
+biological data and replicate experiments. We put the statistics first: we do
+not need to write every t-test from scratch, but rather show them the right
+context so that they can reach the right conclusions. Alongside it, I write and
+maintain open-source packages —
+[MCPR](https://github.com/phisanti/MCPR),
+[plotly.repel](https://github.com/phisanti/plotly.repel) and
+[CodeDjinn](https://github.com/phisanti/codedjinn).
+
+In brief
+---
+* **2026–** &nbsp;&nbsp; AI & bioinformatics, [BigOmics Analytics](https://bigomics.ch), Lugano
+* **2024–26** &nbsp; Postdoctoral researcher, [Boeck Lab](https://biomedizin.unibas.ch/en/research/research-groups/boeck-lab/), Basel — deep learning for microscopy
+* **2017–22** &nbsp; PhD, University of Cambridge — Floto Lab
+* **2014–16** &nbsp; MSc Molecular Biology & Biotechnology, [University of Groningen](https://www.rug.nl/?lang=en) — Honours College
+
+The full record lives on [Google Scholar](https://scholar.google.com/citations?user=8UBe1NgAAAAJ&hl=es)
+and [LinkedIn](https://www.linkedin.com/in/santiagoecanomuniz/).
 
 Recent News
-===
+---
 * I joined [BigOmics](https://bigomics.ch) in Lugano, CH to develop their AI capabilities. [01-02-26]
 * My PhD main thesis work was published in [Nature Microbiology](https://www.nature.com/articles/s41564-025-02175-5). [24-11-25]
 * I joined the Boeck Lab in Switzerland to develop a automatic image analysis pipeline to track antibiotic killing with microscopy. [01-01-24]

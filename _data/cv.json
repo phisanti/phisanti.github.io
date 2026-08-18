@@ -1,152 +1,175 @@
 {
   "basics": {
-    "name": "Your Sidebar Name",
-    "email": "none@example.org",
+    "name": "Santiago Cano-Muniz",
+    "email": "santiago.e.canomuniz@gmail.com",
     "phone": "",
-    "website": "https://academicpages.github.io",
-    "summary": "Currently employed at Red Brick University. Short biography for the left-hand sidebar",
+    "website": "https://phisanti.github.io",
+    "summary": "Biologist and bioinformatician working at the intersection of machine learning, infectious disease and multi-omics. Builds open-source R and Python tooling for reproducible analysis.",
     "location": {
       "address": "",
       "postalCode": "",
-      "city": "Earth",
-      "countryCode": "US",
+      "city": "Lugano",
+      "countryCode": "CH",
       "region": ""
     },
     "profiles": [
       {
         "network": "Google Scholar",
-        "username": "",
-        "url": "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+        "username": "Santiago Cano-Muniz",
+        "url": "https://scholar.google.com/citations?user=8UBe1NgAAAAJ&hl=es"
       },
       {
-        "network": "ORCID",
-        "username": "",
-        "url": "http://orcid.org/yourorcidurl"
+        "network": "LinkedIn",
+        "username": "santiagoecanomuniz",
+        "url": "https://www.linkedin.com/in/santiagoecanomuniz/"
       },
       {
         "network": "GitHub",
-        "username": "academicpages",
-        "url": "https://github.com/academicpages"
+        "username": "phisanti",
+        "url": "https://github.com/phisanti"
+      },
+      {
+        "network": "PubMed",
+        "username": "Santiago Cano Muniz",
+        "url": "https://www.ncbi.nlm.nih.gov/pubmed/?term=Santiago+Cano+Muniz"
       }
     ]
   },
-  "work": [],
+  "work": [
+    {
+      "company": "BigOmics Analytics",
+      "position": "AI / Bioinformatics",
+      "startDate": "2026-02-01",
+      "endDate": "",
+      "summary": "Developing AI capabilities for the Omics Playground multi-omics analysis platform.",
+      "highlights": []
+    },
+    {
+      "company": "Boeck Lab, University of Basel",
+      "position": "Postdoctoral researcher",
+      "startDate": "2024-01-01",
+      "endDate": "2026-01-31",
+      "summary": "Deep learning image-analysis pipeline to track antibiotic killing with microscopy.",
+      "highlights": []
+    },
+    {
+      "company": "Bryant Lab, University of Cambridge",
+      "position": "Research associate",
+      "startDate": "2023-01-09",
+      "endDate": "2023-12-31",
+      "summary": "Lung-on-a-chip models for the study of chronic infection.",
+      "highlights": []
+    },
+    {
+      "company": "Floto Lab, University of Cambridge",
+      "position": "PhD student / Research associate",
+      "startDate": "2017-09-01",
+      "endDate": "2022-12-31",
+      "summary": "Microfluidics coupled with ML detection and tracking to show the coordination of bacterial metabolism and membrane permeability.",
+      "highlights": []
+    },
+    {
+      "company": "Summers Lab",
+      "position": "Research assistant",
+      "startDate": "2016-01-01",
+      "endDate": "2017-08-31",
+      "summary": "",
+      "highlights": []
+    }
+  ],
   "education": [
     {
-      "institution": "GitHub University",
-      "area": "Ph.D in Version Control Theory",
-      "studyType": "",
-      "startDate": "",
-      "endDate": "2018",
+      "institution": "University of Cambridge",
+      "area": "Medical Science",
+      "studyType": "Ph.D.",
+      "startDate": "2017",
+      "endDate": "2021",
       "gpa": null,
       "courses": []
     },
     {
-      "institution": "GitHub University",
-      "area": "M.S. in Jekyll",
-      "studyType": "",
-      "startDate": "",
+      "institution": "University of Groningen",
+      "area": "Molecular Biology & Biotechnology",
+      "studyType": "M.Sc. (Honours College)",
+      "startDate": "2014",
+      "endDate": "2016",
+      "gpa": null,
+      "courses": []
+    },
+    {
+      "institution": "Universidad Autonoma de Madrid",
+      "area": "Biology",
+      "studyType": "B.Sc.",
+      "startDate": "2008",
       "endDate": "2014",
       "gpa": null,
       "courses": []
-    },
-    {
-      "institution": "GitHub University",
-      "area": "B.S. in GitHub",
-      "studyType": "",
-      "startDate": "",
-      "endDate": "2012",
-      "gpa": null,
-      "courses": []
     }
   ],
-  "skills": [],
+  "skills": [
+    {
+      "name": "Languages",
+      "level": "",
+      "keywords": ["R", "Python", "SQL", "Bash"]
+    },
+    {
+      "name": "Data & omics",
+      "level": "",
+      "keywords": ["Multi-omics integration", "Proteomics", "Transcriptomics", "WGCNA", "Single-cell analysis"]
+    },
+    {
+      "name": "Machine learning",
+      "level": "",
+      "keywords": ["Deep learning", "Image analysis", "Causal inference", "LLM applications"]
+    },
+    {
+      "name": "Engineering",
+      "level": "",
+      "keywords": ["R package development", "Shiny", "Docker", "Reproducible pipelines"]
+    }
+  ],
   "languages": [],
   "interests": [],
   "references": [],
-  "publications": [
-    {
-      "name": "Paper Title Number 1",
-      "publisher": "Journal 1",
-      "releaseDate": "2009-10-01",
-      "website": "http://academicpages.github.io/files/paper1.pdf",
-      "summary": "This paper is about the number 1. The number 2 is left for future work."
-    },
-    {
-      "name": "Paper Title Number 2",
-      "publisher": "Journal 1",
-      "releaseDate": "2010-10-01",
-      "website": "http://academicpages.github.io/files/paper2.pdf",
-      "summary": "This paper is about the number 2. The number 3 is left for future work."
-    },
-    {
-      "name": "Paper Title Number 3",
-      "publisher": "Journal 1",
-      "releaseDate": "2015-10-01",
-      "website": "http://academicpages.github.io/files/paper3.pdf",
-      "summary": "This paper is about the number 3. The number 4 is left for future work."
-    },
-    {
-      "name": "Paper Title Number 4",
-      "publisher": "GitHub Journal of Bugs",
-      "releaseDate": "2024-02-17",
-      "website": "http://academicpages.github.io/files/paper3.pdf",
-      "summary": "This paper is about fixing template issue #693."
-    }
-  ],
+  "publications": [],
   "presentations": [
     {
-      "name": "Talk 1 on Relevant Topic in Your Field",
-      "event": "UC San Francisco, Department of Testing",
-      "date": "2012-03-01",
-      "location": "San Francisco, CA, USA",
+      "name": "Multi-omics WGCNA+ and LLM-assisted module annotation",
+      "event": "Swiss Proteomics Society meeting",
+      "date": "2026-04-01",
+      "location": "Bern, Switzerland",
       "description": ""
     },
     {
-      "name": "Tutorial 1 on Relevant Topic in Your Field",
-      "event": "UC-Berkeley Institute for Testing Science",
-      "date": "2013-03-01",
-      "location": "Berkeley, CA, USA",
+      "name": "Membrane potential and membrane permeability in Gram-negative bacteria",
+      "event": "NECS (Newcastle, Edinburgh, Cambridge, Sheffield) Research Day",
+      "date": "2021-01-01",
+      "location": "United Kingdom",
       "description": ""
     },
     {
-      "name": "Talk 2 on Relevant Topic in Your Field",
-      "event": "London School of Testing",
-      "date": "2014-02-01",
-      "location": "London, UK",
-      "description": ""
-    },
-    {
-      "name": "Conference Proceeding talk 3 on Relevant Topic in Your Field",
-      "event": "Testing Institute of America 2014 Annual Conference",
-      "date": "2014-03-01",
-      "location": "Los Angeles, CA, USA",
+      "name": "LMB Symposium talk",
+      "event": "LMB Symposium",
+      "date": "2020-01-01",
+      "location": "Cambridge, United Kingdom",
       "description": ""
     }
   ],
   "teaching": [
     {
-      "course": "Teaching experience 1",
-      "institution": "University 1, Department",
-      "date": "2014-01-01",
-      "role": "Undergraduate course",
+      "course": "R statistics workshop",
+      "institution": "Mexico",
+      "date": "2019-01-01",
+      "role": "Instructor",
       "description": ""
     },
     {
-      "course": "Teaching experience 2",
-      "institution": "University 1, Department",
-      "date": "2015-01-01",
-      "role": "Workshop",
+      "course": "R in lockdown",
+      "institution": "Online",
+      "date": "2020-01-01",
+      "role": "Instructor",
       "description": ""
     }
   ],
-  "portfolio": [
-    {
-      "name": "Portfolio item number 1",
-      "category": "portfolio",
-      "date": "",
-      "url": "",
-      "description": "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
-    }
-  ]
+  "portfolio": []
 }
