@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Everforest light: bg0 #fdf6e3, bg1 #efebd4, fg #5c6a72, grey1 #939f91,
+       green #8da101, deep green #677400, teal #35a77c, blue #3a94c5, orange #f57d26 -->
+  <rect width="1200" height="630" fill="#fdf6e3"/>
+
+  <!-- left accent rail -->
+  <rect x="0" y="0" width="14" height="630" fill="#677400"/>
+
+  <!-- soft panel -->
+  <rect x="14" y="0" width="1186" height="630" fill="#fdf6e3"/>
+
+  <!-- subtle top hairline -->
+  <rect x="80" y="118" width="120" height="3" fill="#8da101"/>
+
+  <text x="80" y="102" font-family="Georgia, 'DejaVu Serif', serif" font-size="26" letter-spacing="3" fill="#939f91">PHISANTI.GITHUB.IO</text>
+
+  <text x="80" y="228" font-family="Georgia, 'DejaVu Serif', serif" font-size="68" font-weight="bold" fill="#4f585e">Santiago Cano-Muniz</text>
+
+  <text x="80" y="308" font-family="Georgia, 'DejaVu Serif', serif" font-size="40" fill="#5c6a72">The biology is the hard part.</text>
+
+  <text x="80" y="382" font-family="Georgia, 'DejaVu Serif', serif" font-size="32" fill="#5c6a72">Multi-omics, machine learning, and</text>
+  <text x="80" y="430" font-family="Georgia, 'DejaVu Serif', serif" font-size="32" fill="#5c6a72">open-source R for people who know it.</text>
+
+  <!-- keyword chips -->
+  <g font-family="Georgia, 'DejaVu Serif', serif" font-size="25">
+    <rect x="80"  y="500" width="112" height="52" rx="26" fill="#efebd4" stroke="#8da101" stroke-width="2"/>
+    <text x="136" y="534" fill="#677400" text-anchor="middle">R</text>
+
+    <rect x="208" y="500" width="200" height="52" rx="26" fill="#efebd4" stroke="#35a77c" stroke-width="2"/>
+    <text x="308" y="534" fill="#2b8664" text-anchor="middle">multi-omics</text>
+
+    <rect x="424" y="500" width="176" height="52" rx="26" fill="#efebd4" stroke="#3a94c5" stroke-width="2"/>
+    <text x="512" y="534" fill="#2c7ba6" text-anchor="middle">bioinformatics</text>
+
+    <rect x="616" y="500" width="256" height="52" rx="26" fill="#efebd4" stroke="#f57d26" stroke-width="2"/>
+    <text x="744" y="534" fill="#c25c14" text-anchor="middle">reproducibility</text>
+  </g>
+
+  <!-- decorative network motif, right side -->
+  <g stroke="#939f91" stroke-width="2" fill="none" opacity="0.55">
+    <line x1="985" y1="180" x2="1080" y2="132"/>
+    <line x1="985" y1="180" x2="1068" y2="252"/>
+    <line x1="985" y1="180" x2="912" y2="268"/>
+    <line x1="1068" y1="252" x2="1080" y2="132"/>
+    <line x1="1068" y1="252" x2="1122" y2="330"/>
+    <line x1="912" y1="268" x2="1000" y2="352"/>
+    <line x1="1000" y1="352" x2="1068" y2="252"/>
+    <line x1="1000" y1="352" x2="1122" y2="330"/>
+    <line x1="1000" y1="352" x2="962" y2="432"/>
+  </g>
+  <g fill="#8da101" opacity="0.9">
+    <circle cx="985"  cy="180" r="13"/>
+    <circle cx="1080" cy="132" r="9"/>
+    <circle cx="1068" cy="252" r="11"/>
+    <circle cx="1000" cy="352" r="14"/>
+  </g>
+  <g fill="#35a77c" opacity="0.85">
+    <circle cx="912"  cy="268" r="9"/>
+    <circle cx="1122" cy="330" r="10"/>
+    <circle cx="962"  cy="432" r="8"/>
+  </g>
+</svg>

@@ -12,7 +12,7 @@ site_theme               : "minimal"
 title                    : "Santiago Cano-Muniz"
 title_separator          : "-"
 name                     : &name "Santiago Cano-Muniz"
-description              : &description "personal description"
+description              : &description "Biologist and bioinformatician building open-source R tooling for omics data analysis. Notes on R, multi-omics, and reproducible science."
 url                      : https://phisanti.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "phisanti/phisanti.github.io"
@@ -29,7 +29,7 @@ author:
   location         : "Lugano, CH"
   employer         :
   uri              : # URL
-  email            : "santiago.e.canomuiz@gmail.com" 
+  email            : "santiago.e.canomuniz@gmail.com"
 
   # Academic websites
   academia         : # URL
@@ -132,26 +132,32 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : &twitter
+  username               : &twitter "doctorscm"
 facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 :  # Social media default site image
-og_description           :  # Social media default site image description
+og_image                 : "og-card.png"  # 1200x630 default card in /images/, used when a page has no header.image
+og_description           : *description   # Social media default site image description
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: [] # An array of links to social media profiles
+  type                   : "Person" # Person or Organization (defaults to Person)
+  name                   : *name    # If the user or organization name differs from the site's name
+  links: # An array of links to social media profiles
+    - "https://www.linkedin.com/in/santiagoecanomuniz/"
+    - "https://twitter.com/doctorscm"
+    - "https://github.com/phisanti"
+    - "https://scholar.google.com/citations?user=8UBe1NgAAAAJ&hl=es"
 
 
 # Analytics
 analytics:
-  provider               :  "false" # false (default), "google", "google-universal", "google-analytics-4", "custom"
+  provider               :  "custom" # false (default), "google", "google-universal", "google-analytics-4", "custom"
   google:
     tracking_id          :
+  goatcounter:
+    code                 :  # your GoatCounter subdomain, e.g. "phisanti" for phisanti.goatcounter.com
 
 
 # Reading Files
