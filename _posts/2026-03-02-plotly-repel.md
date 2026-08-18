@@ -3,10 +3,10 @@ title: "Making plotly labels behave: the story behind plotly.repel"
 date: 2026-03-02
 permalink: /posts/2026/03/plotly-repel/
 tags:
-  - microbiology
-  - membrane-potential
-  - antibiotics
-  - porins
+  - R
+  - data-visualization
+  - plotly
+  - open-source
 excerpt: "Today I am publishing **plotly.repel**, an R package that brings ggrepel-style label repulsion to interactive plotly charts..."
 ---
 

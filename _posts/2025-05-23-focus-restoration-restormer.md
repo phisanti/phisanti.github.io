@@ -2,6 +2,12 @@
 title: "Focus restoration with restormer"
 excerpt: "Image restoration made easy"
 date: 2025-05-23
+permalink: /posts/2025/05/focus-restoration-restormer/
+tags:
+  - deep-learning
+  - image-analysis
+  - microscopy
+  - python
 ---
 
 ## Intro

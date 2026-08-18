@@ -2,6 +2,12 @@
 title: "GPU cloud computing with Paperspace"
 excerpt: "This is a side-project that I developed because the limitation of training machine learning models in my local computer. As you may know, machine learning models often require a lot of computational power to run"
 date: 2023-02-01
+permalink: /posts/2023/02/gpu-cloud-paperspace/
+tags:
+  - machine-learning
+  - docker
+  - cloud
+  - tooling
 ---
 
 This is a side-project that I developed because the limitation of training machine learning models in my local computer. As you may know, machine learning models often require a lot of computational power to run. In particular, training models on GPUs can significantly speed up the process. However, not everyone has access to a powerful computer with a GPU. Some time ago, I discovered Paperspace.

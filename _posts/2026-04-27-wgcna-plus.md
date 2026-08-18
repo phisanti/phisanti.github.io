@@ -1,6 +1,6 @@
 ---
 title: "The Wall, the Lasagna, and the Last Biologist Who Codes"
-date: 2026-04-24
+date: 2026-04-27
 permalink: /posts/2026/04/swiss-proteomics-lasagna/
 tags:
   - multi-omics

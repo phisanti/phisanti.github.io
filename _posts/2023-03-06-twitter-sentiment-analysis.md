@@ -2,6 +2,11 @@
 title: "Analysing twitter sentiment and topics"
 excerpt: "A fun tool to grasp the moody mood of the twitter world"
 date: 2023-03-06
+permalink: /posts/2023/03/twitter-sentiment-analysis/
+tags:
+  - NLP
+  - python
+  - data-science
 ---
 
 ## Analysing tweeter sentiment and topics
