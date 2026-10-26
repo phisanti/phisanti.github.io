@@ -1,27 +1,9 @@
-# Jekyll build output
-_site/
-
-# Jekyll cache
-.jekyll-cache/
-.jekyll-metadata
-
-# Sass cache
-.sass-cache/
-
-# Drafts (working files, not for publication)
-_drafts/
-
 # macOS
 .DS_Store
 **/.DS_Store
 
-# Ruby
-.bundle/
-vendor/
-.ruby-version
-
 # Node
-node_modules/
+node_modules
 
 # Logs
 *.log
@@ -29,3 +11,13 @@ node_modules/
 # Temporary files
 *.tmp
 *.swp
+
+# Astro
+dist/
+.astro/
+test-results/
+playwright-report/
+
+# Old Jekyll build output, if a stale checkout still produces it
+_site/
+.sass-cache/

@@ -1,0 +1,67 @@
+---
+import { getEntry } from 'astro:content';
+import StrataHero from './StrataHero.astro';
+import WhoCard from './WhoCard.astro';
+
+type HomeCopy = Record<
+  'eyebrow' | 'headline_roman' | 'headline_italic' | 'lede' | 'who_current' | 'who_previous',
+  string
+>;
+
+const home = (await getEntry('pages', 'home'))!.data as HomeCopy;
+---
+
+<section class="hero">
+  <div class="layer" aria-hidden="true"><StrataHero /></div>
+  <div class="hero-in">
+    <div class="text" data-intro>
+      <p class="k">{home.eyebrow}</p>
+      <h1>{home.headline_roman}<br /><em>{home.headline_italic}</em></h1>
+      <p class="lede">{home.lede}</p>
+      <div class="ctas">
+        <a class="btn" href="/writing/">Read the essays <span class="ar" aria-hidden="true">→</span></a>
+        <a class="btn ghost" href="/about/">About</a>
+      </div>
+    </div>
+    <WhoCard current={home.who_current} previous={home.who_previous} />
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 540px;
+    border-bottom: 1px solid var(--border);
+  }
+  /* Decorative strata layer behind the text. */
+  .layer { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
+  .hero-in {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 310px;
+    align-items: start;
+    gap: 64px;
+    padding: 84px 56px 72px;
+  }
+  .k { margin: 0; color: var(--accent-ink); }
+  h1 {
+    margin: 16px 0 22px;
+    font-size: clamp(2.625rem, 5.6vw, 4.125rem);
+    line-height: 1.03;
+    letter-spacing: -.012em;
+  }
+  em { font-style: italic; font-weight: 400; color: var(--hero-em); }
+  .lede { max-width: 35rem; margin: 0 0 28px; font-size: 1.375rem; line-height: 1.5; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .ar { transition: transform .2s ease; }
+  .btn:hover .ar, .btn:focus-visible .ar { transform: translateX(3px); }
+
+  @media (max-width: 767.98px) {
+    .hero { min-height: 0; }
+    .hero-in { grid-template-columns: 1fr; gap: 0; padding: 40px 20px 36px; }
+    h1 { font-size: 2.625rem; }
+    .lede { font-size: 1.1875rem; }
+    .hero-in > :global(.who) { display: none; }
+  }
+</style>

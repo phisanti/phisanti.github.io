@@ -1,0 +1,65 @@
+/* Light: Everforest Light Medium with red punctuation. Dark: Everforest Dark Hard with amp's green
+   headings and a dark code panel. Light on :root, dark on html[data-theme="dark"]. */
+:root {
+  --bg: #fdf6e3;
+  --bg1: #efebd4;
+  --panel: #f4f0df;
+  --border: #e0dcc7;
+  --fg: #5c6a72;
+  --fg-strong: #3f4a4f;
+  --fg-light: #5d6b58;
+  --link: #27719c;
+  --link-hover: #185c82;
+  --visited: #8d6a9f;
+  --btn: #677400;
+  --btn-hover: #545f00;
+  --btn-fg: #fffbef;
+  /* Red punctuation: #f34e3f is large-text/UI only (3.26:1 on --bg); small red text uses --accent-ink. */
+  --accent: #f34e3f;
+  --accent-ink: #c03b2c;
+  --hero-em: #f34e3f;
+  --selection: #dfe2c0;
+  --mark: #dfe2c0;
+  --heading-accent: var(--fg-strong);
+  --h3: var(--fg-strong);
+  --h3-style: normal;
+  --code-bg: #f4efde;
+  --code-fg: #586e75;
+  /* RGB triplets for the strata canvas */
+  --line: 92, 106, 114;
+  --line-acc: 141, 161, 1;
+
+  --ease-out: cubic-bezier(.2, .7, .2, 1);
+  --dur-link: 220ms;
+  --dur-card: 250ms;
+  --dur-reveal: 550ms;
+  --dur-theme: 550ms;
+}
+
+html[data-theme="dark"] {
+  --bg: #272e33;
+  --bg1: #2e383c;
+  --panel: #2e383c;
+  --border: #3d474c;
+  --fg: #d3c6aa;
+  --fg-strong: #e4d9bf;
+  --fg-light: #9da9a0;
+  --link: #83c092;
+  --link-hover: #a7c080;
+  --visited: #d699b6;
+  --btn: #a7c080;
+  --btn-hover: #b9cf96;
+  --btn-fg: #272e33;
+  --accent: #a7c080;
+  --selection: #414b50;
+  --mark: rgba(219, 188, 127, .18);
+  --accent-ink: var(--fg-light);
+  --hero-em: #a7c080;
+  --heading-accent: #a7c080;
+  --h3: #dbbc7f;
+  --h3-style: italic;
+  --code-bg: #1e2326;
+  --code-fg: #d3c6aa;
+  --line: 211, 198, 170;
+  --line-acc: 167, 192, 128;
+}

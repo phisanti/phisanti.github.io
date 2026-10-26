@@ -1,0 +1,29 @@
+---
+import Page from '../../../layouts/Page.astro';
+import { getPosts, tagUrl } from '../../../lib/posts';
+
+// Counted per tag page, so `R` and `r` list once; the first spelling seen names it.
+const pages = new Map<string, { name: string; count: number }>();
+for (const post of await getPosts()) {
+  for (const tag of new Set(post.data.tags.map(tagUrl))) {
+    const page = pages.get(tag) ?? { name: post.data.tags.find((t) => tagUrl(t) === tag)!, count: 0 };
+    page.count += 1;
+    pages.set(tag, page);
+  }
+}
+const tags = [...pages].sort((a, b) => b[1].count - a[1].count || a[1].name.localeCompare(b[1].name));
+---
+
+<Page title="Tags" description="Essays by topic.">
+  <ul>
+    {tags.map(([url, { name, count }]) => (
+      <li><a href={url}>{name}</a> <span class="k">{count}</span></li>
+    ))}
+  </ul>
+  <p><a href="/writing/">← All writing</a></p>
+</Page>
+
+<style>
+  ul { margin: 0 0 24px; padding: 0; list-style: none; columns: 2; }
+  li { padding: 4px 0; font-size: 1.25rem; }
+</style>

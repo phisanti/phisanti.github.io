@@ -1,0 +1,116 @@
+---
+import type { MarkdownHeading } from 'astro';
+import Base from './Base.astro';
+import ReadingProgress from '../components/ReadingProgress.astro';
+import Toc from '../components/Toc.astro';
+import AuthorCard from '../components/AuthorCard.astro';
+import PrevRelated from '../components/PrevRelated.astro';
+import { ogKey } from '../lib/og';
+import { isoDay, longDate, plainText, readTime, tagUrl, type Post } from '../lib/posts';
+
+interface Props {
+  post: Post;
+  headings: MarkdownHeading[];
+  prev?: Post;
+  related?: Post;
+}
+
+const { post, headings, prev, related } = Astro.props;
+const { title, date, excerpt, tags } = post.data;
+const dek = plainText(excerpt);
+const url = new URL(Astro.url.pathname, Astro.site).href;
+const share = {
+  linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+  x: `https://x.com/intent/post?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`,
+};
+const sharedTag = related?.data.tags.find((tag) => tags.includes(tag));
+---
+
+<Base title={`${title} · Santiago Cano-Muniz`} description={dek} image={`/og/${ogKey(post)}.png`}>
+  <ReadingProgress />
+  <div class="essay">
+    <Toc headings={headings} />
+    <article>
+      <header>
+        <p class="k kicker">
+          Essay{tags.slice(0, 3).map((tag) => <> · <a href={tagUrl(tag)}>{tag}</a></>)}
+        </p>
+        <h1>{title}</h1>
+        <p class="dek">{dek}</p>
+        <div class="byline">
+          <img class="portrait" src="/profile.png" alt="" width="36" height="36" />
+          <span><b>Santiago Cano-Muniz</b> · <time datetime={isoDay(date)}>{longDate(date)}</time> · {readTime(post.body)} min read</span>
+          <span class="share">
+            Share: <a href={share.linkedin}>LinkedIn</a> · <a href={share.x}>X</a> ·{' '}
+            <button type="button" data-copy={url}><span aria-live="polite">Copy link</span></button>
+          </span>
+        </div>
+      </header>
+      <div class="prose">
+        <slot />
+      </div>
+      <AuthorCard title={title} />
+      <PrevRelated prev={prev} related={related} tag={sharedTag} />
+    </article>
+  </div>
+</Base>
+
+
+<style>
+  .essay {
+    display: grid;
+    grid-template-columns: 1fr min(44rem, calc(100% - 40px)) 1fr;
+    padding-top: 64px;
+  }
+  article { grid-column: 2; grid-row: 1; min-width: 0; }
+
+  .kicker { margin: 0; color: var(--accent-ink); }
+  .kicker a, .kicker a:visited { color: inherit; }
+  h1 { margin: 14px 0 16px; font-size: 3.25rem; line-height: 1.08; }
+  .dek { margin: 0 0 20px; font-size: 1.4375rem; line-height: 1.45; font-style: italic; }
+
+  .byline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    padding: 14px 0;
+    border-block: 1px solid var(--border);
+    color: var(--fg-light);
+    font-size: 1.03125rem;
+  }
+  .byline b { color: var(--fg-strong); font-weight: 600; }
+  .portrait {
+    width: 36px;
+    height: 36px;
+  }
+  .share { margin-left: auto; }
+  .share button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--link);
+    font: inherit;
+    cursor: pointer;
+  }
+  .share button:hover { color: var(--link-hover); }
+
+  .prose :global(p) { margin: 22px 0; }
+  .prose :global(h2) { margin: 40px 0 4px; font-size: 1.9375rem; line-height: 1.2; scroll-margin-top: 24px; }
+  .prose :global(h3) { margin: 32px 0 4px; font-size: 1.5rem; line-height: 1.25; font-style: var(--h3-style); color: var(--h3); }
+  .prose :global(:is(ul, ol)) { margin: 22px 0; padding-left: 1.4em; }
+  .prose :global(blockquote) { margin: 22px 0; padding-left: 18px; border-left: 2px solid var(--border); font-style: italic; }
+  .prose :global(figure) { margin: 28px 0; }
+  .prose :global(figure img) { width: 100%; height: auto; border-radius: 6px; }
+  .prose :global(figcaption strong) { color: var(--accent-ink); font-weight: 600; }
+  .prose :global(figcaption) { margin-top: 10px; color: var(--fg-light); font-size: 1.03125rem; line-height: 1.5; text-align: center; }
+
+  @media (max-width: 767.98px) {
+    .essay { padding-top: 36px; }
+    h1 { font-size: 2.25rem; }
+    .dek { font-size: 1.25rem; }
+    .share { margin-left: 0; }
+    .prose { font-size: 1.1875rem; }
+    .prose :global(h2) { font-size: 1.625rem; }
+  }
+</style>

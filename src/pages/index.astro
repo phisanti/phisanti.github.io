@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import HomeHero from '../components/HomeHero.astro';
+import WritingRows from '../components/WritingRows.astro';
+import WorkCards from '../components/WorkCards.astro';
+import { getPosts } from '../lib/posts';
+
+const posts = await getPosts();
+const featured = (await getCollection('projects', ({ data }) => data.featured))
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
+  .slice(0, 3);
+---
+
+<Base>
+  <HomeHero />
+  <section class="sec" data-reveal aria-labelledby="latest-writing">
+    <header>
+      <h2 id="latest-writing">Latest writing</h2>
+      <a class="underlined" href="/writing/">All {posts.length} essays →</a>
+    </header>
+    <WritingRows posts={posts.slice(0, 4)} />
+  </section>
+  <section class="sec" data-reveal aria-labelledby="selected-work">
+    <header>
+      <h2 id="selected-work">Selected work</h2>
+      <a class="underlined" href="/projects/">All projects →</a>
+    </header>
+    <WorkCards projects={featured} />
+  </section>
+</Base>
+
+<style>
+  .sec { padding: 52px 56px 8px; }
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 4px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  h2 { font-size: 1.8125rem; }
+
+  @media (max-width: 767.98px) {
+    .sec { padding: 30px 20px 0; }
+  }
+</style>

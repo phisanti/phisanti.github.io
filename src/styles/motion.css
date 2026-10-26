@@ -1,0 +1,40 @@
+/* Motion kit. Only transform, opacity, filter and clip-path animate. */
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+}
+@keyframes drawer-in {
+  from { opacity: 0; transform: translateY(-6px); }
+}
+@keyframes theme-reveal {
+  from { clip-path: circle(0 at var(--reveal-x) var(--reveal-y)); }
+  to { clip-path: circle(160vmax at var(--reveal-x) var(--reveal-y)); }
+}
+
+/* Hero intro, first visit per session: children fade up 80ms apart. */
+[data-intro="play"] > * { animation: fade-up 600ms var(--ease-out) backwards; }
+[data-intro="play"] > :nth-child(2) { animation-delay: 80ms; }
+[data-intro="play"] > :nth-child(3) { animation-delay: 160ms; }
+[data-intro="play"] > :nth-child(4) { animation-delay: 240ms; }
+
+/* Section reveal: motion.ts marks sections "out" until they scroll into view. */
+[data-reveal] {
+  transition: opacity var(--dur-reveal) ease, transform var(--dur-reveal) var(--ease-out);
+}
+[data-reveal="out"] { opacity: 0; transform: translateY(10px); }
+
+/* Theme switch: the new theme grows as a circle from the toggle. */
+::view-transition-old(root) { animation: none; }
+::view-transition-new(root) {
+  animation: theme-reveal var(--dur-theme) var(--ease-out);
+  mix-blend-mode: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
+}

@@ -1,0 +1,80 @@
+---
+import MobileMenu from './MobileMenu.astro';
+import ThemeToggle from './ThemeToggle.astro';
+import { nav, contact, isCurrent } from '../data/nav';
+
+const { pathname } = Astro.url;
+---
+
+<header class="mh">
+  <a class="name" href="/">
+    <span class="full">Santiago Cano-Muniz</span><span class="short">S. Cano-Muniz</span>
+  </a>
+  <nav class="primary" aria-label="Primary">
+    {nav.map((item) => (
+      <a href={item.href} aria-current={isCurrent(item, pathname) ? 'page' : undefined}>{item.label}</a>
+    ))}
+  </nav>
+  <a class="contact" href={contact.href} aria-current={isCurrent(contact, pathname) ? 'page' : undefined}>
+    {contact.label}
+  </a>
+  <MobileMenu />
+  <ThemeToggle />
+</header>
+
+<style>
+  .mh {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    height: 76px;
+    padding: 0 56px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .mh a { color: var(--fg); }
+  .name {
+    font-size: 1.4375rem;
+    font-weight: 600;
+    background: none;
+  }
+  .mh .name, .mh .name:visited, .mh .contact, .mh .contact:visited { color: var(--fg-strong); }
+  .short { display: none; }
+  .primary {
+    display: flex;
+    gap: 28px;
+    margin-left: auto;
+    font-size: 1.15625rem;
+  }
+  .primary a { background-position: 100% 100%; }
+  .primary a:visited { color: var(--fg); }
+  .primary a:hover,
+  .primary a[aria-current="page"] {
+    color: var(--fg-strong);
+    background-size: 100% 1px;
+    background-position: 0 100%;
+  }
+  .contact {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 1.15625rem;
+  }
+  .contact::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .contact[aria-current="page"] { background-size: 100% 1px; }
+
+  @media (max-width: 767.98px) {
+    .mh { height: 58px; gap: 16px; padding: 0 20px; }
+    .name { font-size: 1.1875rem; }
+    .full, .primary, .contact { display: none; }
+    .short { display: inline; }
+  }
+</style>

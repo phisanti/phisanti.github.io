@@ -1,0 +1,12 @@
+---
+import Page from '../../layouts/Page.astro';
+import IndexList from '../../components/IndexList.astro';
+import { getPosts } from '../../lib/posts';
+
+const posts = await getPosts();
+---
+
+<Page title="Writing" description="Essays on biology, data and code.">
+  <p><a href="/writing/tags/">Browse by tag →</a></p>
+  <IndexList posts={posts} />
+</Page>

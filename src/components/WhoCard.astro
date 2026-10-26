@@ -1,0 +1,57 @@
+---
+import Icon from './Icon.astro';
+import { social } from '../data/social';
+
+interface Props {
+  current: string;
+  previous: string;
+}
+
+const { current, previous } = Astro.props;
+const profiles = social.filter((s) => s.id !== 'rss');
+---
+
+<aside class="who" aria-label="About Santiago">
+  <img class="portrait" src="/profile.png" alt="" width="80" height="80" decoding="async" />
+  <p class="name">Santiago Cano-Muniz</p>
+  <p class="lines">
+    <span>Currently:</span> {current}<br />
+    <span>Previously:</span> {previous}
+  </p>
+  <ul class="profiles">
+    {profiles.map((s) => (
+      <li><Icon name={s.icon} size={15} /><a class="underlined" href={s.url} data-mask={s.mask}>{s.label}</a></li>
+    ))}
+  </ul>
+</aside>
+
+<style>
+  .who {
+    padding: 24px;
+    /* Frosted page colour, so the strata blur through instead of stopping at a panel. */
+    border: 1px solid color-mix(in srgb, var(--border) 45%, transparent);
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--bg) 58%, transparent);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+  .portrait {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 14px;
+  }
+  .name { margin: 0; font-size: 1.25rem; font-weight: 600; line-height: 1.3; color: var(--fg-strong); }
+  .lines { margin: 4px 0 14px; font-size: 1rem; line-height: 1.45; color: var(--fg-light); }
+  .lines span { color: var(--fg); }
+  .profiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 1rem;
+  }
+  li { display: flex; align-items: center; gap: 7px; }
+  li :global(svg) { flex: none; color: var(--fg-light); }
+</style>

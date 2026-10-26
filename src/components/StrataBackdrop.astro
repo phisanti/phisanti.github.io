@@ -1,0 +1,29 @@
+---
+/** Strata field fixed behind inner pages; faint under the reading column, fuller in the margins. */
+---
+
+<canvas class="strata-bg" aria-hidden="true"></canvas>
+
+<script>
+  import { initStrata } from '../scripts/strata';
+
+  const canvas = document.querySelector<HTMLCanvasElement>('canvas.strata-bg');
+  if (canvas) initStrata(canvas, document.body);
+</script>
+
+<style>
+  .strata-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, .55) 16%, rgba(0, 0, 0, .1) 26%, rgba(0, 0, 0, .1) 74%, rgba(0, 0, 0, .55) 84%, #000 100%);
+    mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, .55) 16%, rgba(0, 0, 0, .1) 26%, rgba(0, 0, 0, .1) 74%, rgba(0, 0, 0, .55) 84%, #000 100%);
+  }
+  /* Phone: text spans the width, so the field stays faint everywhere. */
+  @media (max-width: 767.98px) {
+    .strata-bg { -webkit-mask-image: none; mask-image: none; opacity: .2; }
+  }
+</style>

@@ -1,0 +1,52 @@
+---
+import { postUrl, type Post } from '../lib/posts';
+
+interface Props {
+  prev?: Post;
+  related?: Post;
+  /** The tag the related post shares with the current one. */
+  tag?: string;
+}
+
+const { prev, related, tag } = Astro.props;
+---
+
+{(prev || related) && (
+  <nav class="prev-related" aria-label="More essays">
+    {prev && (
+      <div>
+        <span class="k">&larr; Previous</span>
+        <a href={postUrl(prev)}>{prev.data.title}</a>
+      </div>
+    )}
+    {related && (
+      <div class="related">
+        <span class="k">Related{tag && ` · ${tag}`}</span>
+        <a href={postUrl(related)}>{related.data.title}</a>
+      </div>
+    )}
+  </nav>
+)}
+
+<style>
+  .prev-related {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 56px;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 18px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .related { grid-column: 2; text-align: right; }
+  a, a:visited { color: var(--fg-strong); font-size: 1.1875rem; line-height: 1.3; }
+  @media (max-width: 767.98px) {
+    .prev-related { grid-template-columns: 1fr; }
+    .related { grid-column: auto; text-align: left; }
+  }
+</style>

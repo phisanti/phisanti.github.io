@@ -1,0 +1,19 @@
+---
+import Page from '../layouts/Page.astro';
+import { getPosts, postUrl } from '../lib/posts';
+
+const latest = (await getPosts()).slice(0, 3);
+---
+
+<Page title="Not found" heading="Page not found">
+  <p>That page does not exist or has moved. <a href="/">Back to the home page →</a></p>
+  <h2 class="k">Latest writing</h2>
+  <ul>
+    {latest.map((post) => <li><a href={postUrl(post)}>{post.data.title}</a></li>)}
+  </ul>
+</Page>
+
+<style>
+  ul { margin: 8px 0 0; padding: 0; list-style: none; }
+  li { padding: 4px 0; font-size: 1.25rem; }
+</style>

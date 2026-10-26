@@ -1,0 +1,22 @@
+---
+import Page from '../../../../layouts/Page.astro';
+import IndexList from '../../../../components/IndexList.astro';
+import { getPosts, tagUrl } from '../../../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  const tags = new Map<string, string>();
+  for (const tag of posts.flatMap((p) => p.data.tags)) tags.set(tagUrl(tag).split('/')[3], tag);
+  return [...tags].map(([slug, name]) => ({
+    params: { tag: slug },
+    props: { name, posts: posts.filter((p) => p.data.tags.some((t) => tagUrl(t) === tagUrl(name))) },
+  }));
+}
+
+const { name, posts } = Astro.props;
+---
+
+<Page title={`Tagged ${name}`} heading={name} description={`Essays tagged ${name}.`}>
+  <p><a href="/writing/tags/">← All tags</a></p>
+  <IndexList posts={posts} />
+</Page>

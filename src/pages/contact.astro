@@ -1,0 +1,23 @@
+---
+import { getEntry, render } from 'astro:content';
+import Page from '../layouts/Page.astro';
+import Icon from '../components/Icon.astro';
+import { social } from '../data/social';
+
+const { Content } = await render((await getEntry('pages', 'contact'))!);
+---
+
+<Page title="Contact">
+  <div class="prose"><Content /></div>
+  <ul>
+    {social.map((s) => (
+      <li><a href={s.url} data-mask={s.mask}><Icon name={s.icon} size={20} /> {s.label}</a></li>
+    ))}
+  </ul>
+</Page>
+
+<style>
+  ul { margin: 16px 0 0; padding: 0; list-style: none; }
+  li { padding: 6px 0; font-size: 1.25rem; }
+  a { display: inline-flex; align-items: center; gap: 10px; }
+</style>

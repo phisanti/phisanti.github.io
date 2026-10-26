@@ -1,0 +1,67 @@
+---
+import '../styles/site.css';
+import Masthead from '../components/Masthead.astro';
+import SayHello from '../components/SayHello.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string | URL;
+  /** Site-relative path of the share image. */
+  image?: string;
+}
+
+const {
+  title = 'Santiago Cano-Muniz',
+  description = 'Notes on biology, data and code by Santiago Cano-Muniz.',
+  canonical = new URL(Astro.url.pathname, Astro.site),
+  image = '/og-fallback.png',
+} = Astro.props;
+const imageUrl = new URL(image, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fdf6e3" />
+    <script is:inline>
+      // Runs before first paint: stored choice wins, else the system preference.
+      (function () {
+        var stored = null;
+        try { stored = localStorage.getItem('theme'); } catch (e) {}
+        var dark = stored ? stored === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        if (dark) document.querySelector('meta[name="theme-color"]').content = '#272e33';
+      })();
+    </script>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="alternate" type="application/rss+xml" title="Santiago Cano-Muniz" href="/feed.xml" />
+  </head>
+  <body>
+    <Masthead />
+    <main>
+      <slot />
+    </main>
+    <SayHello />
+    <Footer />
+    <script>
+      // unmask first: it fills in the email address that copy buttons read.
+      import '../scripts/unmask';
+      import '../scripts/copy';
+    </script>
+  </body>
+</html>

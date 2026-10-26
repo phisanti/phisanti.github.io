@@ -1,0 +1,72 @@
+---
+import { social, emailMask } from '../data/social';
+
+const profiles = social.filter((s) => s.id !== 'email');
+---
+
+<section class="hello" aria-labelledby="say-hello">
+  <div>
+    <h2 id="say-hello">Say hello</h2>
+    <p>The quickest way to reach me is email. I read everything, slowly.</p>
+    <ul class="profiles">
+      {profiles.map((s) => <li><a class="underlined" href={s.url}>{s.label}</a></li>)}
+    </ul>
+  </div>
+  <div class="copy">
+    <a href="/contact/" data-mask={emailMask}>Email me</a>
+    <button type="button" data-mask={emailMask} data-copy hidden><span aria-live="polite">Copy address</span></button>
+  </div>
+</section>
+
+
+<style>
+  .hello {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 24px;
+    margin-top: 56px;
+    padding: 36px 56px 30px;
+    background: var(--bg1);
+    border-top: 1px solid var(--border);
+  }
+  h2 { font-size: 1.6875rem; margin-bottom: 4px; }
+  p { margin: 0 0 14px; font-size: 1.0625rem; }
+  .profiles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 1.03125rem;
+  }
+  .copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg);
+    font: .875rem "JetBrains Mono", ui-monospace, Menlo, monospace;
+  }
+  .copy a, .copy a:visited { color: var(--fg-strong); }
+  .copy button {
+    min-width: 64px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--fg-light);
+    font: inherit;
+    font-size: .75rem;
+    text-align: right;
+    cursor: pointer;
+  }
+  .copy button:hover { color: var(--fg-strong); }
+
+  @media (max-width: 767.98px) {
+    .hello { grid-template-columns: 1fr; padding: 26px 20px; }
+    .copy { justify-self: start; max-width: 100%; flex-wrap: wrap; }
+  }
+</style>

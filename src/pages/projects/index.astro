@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import Page from '../../layouts/Page.astro';
+import { getPosts, postUrl } from '../../lib/posts';
+
+const byOrder = (a: { data: { order?: number; year: number } }, b: typeof a) =>
+  (a.data.order ?? 99) - (b.data.order ?? 99) || b.data.year - a.data.year;
+const projects = (await getCollection('projects')).sort(byOrder);
+const featured = projects.filter((p) => p.data.featured);
+const rest = projects.filter((p) => !p.data.featured);
+const posts = new Map((await getPosts()).map((p) => [p.id, p]));
+---
+
+<Page title="Projects" description="Open-source software and tools.">
+  <ul class="cards">
+    {featured.map(({ data }) => (
+      <li>
+        <p class="k">{data.kind} · {data.year}</p>
+        <h2>{data.title}</h2>
+        <p>{data.summary}</p>
+        {data.repo && <a href={data.repo}>Repository →</a>}
+        {data.post && posts.has(data.post) && <a href={postUrl(posts.get(data.post)!)}>Write-up</a>}
+      </li>
+    ))}
+  </ul>
+  {rest.length > 0 && <h2>More</h2>}
+  <ul class="list">
+    {rest.map(({ data }) => (
+      <li>
+        <span class="k">{data.kind} · {data.year}</span>
+        <div>
+          {data.repo ? <a href={data.repo}>{data.title}</a> : data.title} — {data.summary}
+          {data.post && posts.has(data.post) && <> · <a href={postUrl(posts.get(data.post)!)}>Write-up</a></>}
+        </div>
+      </li>
+    ))}
+  </ul>
+</Page>
+
+<style>
+  ul { margin: 0; padding: 0; list-style: none; }
+  .cards li { margin-bottom: 14px; padding: 18px 20px; border: 1px solid var(--border); border-radius: 8px; background: var(--panel); }
+  .cards h2 { margin: 4px 0 6px; font-size: 1.5rem; }
+  .cards p { margin: 0 0 8px; }
+  .cards a + a { margin-left: 14px; }
+  .list li { padding: 10px 0; border-bottom: 1px solid var(--border); }
+</style>

@@ -1,0 +1,17 @@
+---
+/** 2px accent hairline under the masthead; motion.ts sets its length, `--progress` (0 to 1), from scroll. */
+---
+
+<div class="reading-progress" aria-hidden="true"></div>
+
+<style>
+  .reading-progress {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(var(--progress, 0));
+    transform-origin: 0 50%;
+  }
+</style>

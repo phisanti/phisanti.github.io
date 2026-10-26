@@ -1,0 +1,76 @@
+---
+import type { MarkdownHeading } from 'astro';
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const sections = Astro.props.headings.filter((h) => h.depth === 2);
+---
+
+{sections.length > 0 && (
+  <nav class="toc" aria-label="On this page">
+    <div class="sticky">
+      <span class="k">On this page</span>
+      <ol>
+        {sections.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+      </ol>
+    </div>
+  </nav>
+)}
+
+<script>
+  // Highlight the section whose h2 last crossed into the top 30% of the viewport.
+  const links = new Map(
+    [...document.querySelectorAll<HTMLAnchorElement>('.toc a')].map((a) => [decodeURIComponent(a.hash.slice(1)), a]),
+  );
+  const ids = [...links.keys()];
+  let current: HTMLAnchorElement | undefined;
+  const select = (id: string | undefined) => {
+    current?.removeAttribute('aria-current');
+    current = id ? links.get(id) : undefined;
+    current?.setAttribute('aria-current', 'location');
+  };
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        const id = entry.target.id;
+        if (entry.isIntersecting) select(id);
+        else if (entry.boundingClientRect.top > 0 && current === links.get(id)) select(ids[ids.indexOf(id) - 1]);
+      }
+    },
+    { rootMargin: '0px 0px -70% 0px' },
+  );
+  for (const id of ids) {
+    const heading = document.getElementById(id);
+    if (heading) observer.observe(heading);
+  }
+</script>
+
+<style>
+  .toc {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: end;
+    width: 200px;
+    margin-right: 56px;
+    font-size: .96875rem;
+  }
+  .sticky { position: sticky; top: 24px; }
+  ol {
+    display: grid;
+    gap: 6px;
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+    border-left: 1px solid var(--border);
+  }
+  li { padding-left: 12px; }
+  a, a:visited { color: var(--fg-light); background-size: 0 1px; }
+  a:hover, a:focus-visible { color: var(--fg-strong); }
+  li:has(a[aria-current]) { box-shadow: inset 2px 0 0 var(--accent); }
+  a[aria-current] { color: var(--fg-strong); }
+  @media (max-width: 1179.98px) {
+    .toc { display: none; }
+  }
+</style>

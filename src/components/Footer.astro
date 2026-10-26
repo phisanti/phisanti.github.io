@@ -1,0 +1,23 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="foot">
+  <span>© {year} Santiago Cano-Muniz</span>
+  <span>Lugano, CH</span>
+</footer>
+
+<style>
+  .foot {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 56px;
+    background: var(--bg1);
+    color: var(--fg);
+    font: .75rem "JetBrains Mono", ui-monospace, Menlo, monospace;
+  }
+  @media (max-width: 767.98px) {
+    .foot { padding: 14px 20px; }
+  }
+</style>

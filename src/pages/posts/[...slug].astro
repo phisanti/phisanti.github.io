@@ -1,0 +1,25 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { render } from 'astro:content';
+import Essay from '../../layouts/Essay.astro';
+import { getPosts, postUrl, prevPost, relatedPost } from '../../lib/posts';
+
+export const getStaticPaths = (async () => {
+  const posts = await getPosts();
+  return posts.map((post) => {
+    const prev = prevPost(post, posts);
+    return {
+      // postUrl is /posts/<slug>/; the route param is the part between.
+      params: { slug: postUrl(post).slice('/posts/'.length, -1) },
+      props: { post, prev, related: relatedPost(post, posts.filter((p) => p !== prev)) },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const { post, prev, related } = Astro.props;
+const { Content, headings } = await render(post);
+---
+
+<Essay post={post} headings={headings} prev={prev} related={related}>
+  <Content />
+</Essay>

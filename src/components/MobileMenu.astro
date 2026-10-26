@@ -1,0 +1,60 @@
+---
+import { nav, contact, isCurrent } from '../data/nav';
+
+const { pathname } = Astro.url;
+const links = [...nav, contact];
+---
+
+<button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu">MENU</button>
+<nav id="mobile-menu" class="drawer" aria-label="Site" hidden>
+  {links.map((item, i) => (
+    <a href={item.href} style={`--i: ${i}`} aria-current={isCurrent(item, pathname) ? 'page' : undefined}>{item.label}</a>
+  ))}
+</nav>
+
+<style>
+  .menu-button {
+    display: none;
+    margin-left: auto;
+    padding: 5px 9px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background: none;
+    color: var(--fg-strong);
+    font: 500 .75rem/1.4 "JetBrains Mono", ui-monospace, Menlo, monospace;
+    letter-spacing: .06em;
+    cursor: pointer;
+  }
+  .drawer {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 6;
+    padding: 8px 20px 16px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, .12);
+    animation: drawer-in 220ms ease;
+  }
+  .drawer[hidden] { display: none; }
+  .drawer a {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 1.3125rem;
+    color: var(--fg-strong);
+    background: none;
+    animation: fade-up 300ms ease backwards;
+    animation-delay: calc(var(--i) * 40ms);
+  }
+  .drawer a:last-child { border-bottom: 0; }
+  .drawer a[aria-current="page"] { text-decoration: underline 1px; text-underline-offset: 4px; }
+
+  @media (max-width: 767.98px) {
+    .menu-button { display: block; }
+  }
+  @media (min-width: 768px) {
+    .drawer { display: none; }
+  }
+</style>

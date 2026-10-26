@@ -1,0 +1,44 @@
+---
+import { isoDay, monthDay, plainText, postUrl, tagUrl, type Post } from '../lib/posts';
+
+interface Props {
+  posts: Post[]; // newest first
+}
+
+const { posts } = Astro.props;
+const years = [...new Set(posts.map((p) => p.data.date.getUTCFullYear()))];
+---
+
+{years.map((year) => (
+  <section>
+    <h2 class="k">{year}</h2>
+    <ul>
+      {posts.filter((p) => p.data.date.getUTCFullYear() === year).map((post) => (
+        <li>
+          <time class="k" datetime={isoDay(post.data.date)}>{monthDay(post.data.date)}</time>
+          <div>
+            <a class="title" href={postUrl(post)}>{post.data.title}</a>
+            <p>{plainText(post.data.excerpt)}</p>
+            <span class="k tags">
+              {post.data.tags.slice(0, 2).map((tag, i) => <>{i > 0 && ' · '}<a href={tagUrl(tag)}>{tag}</a></>)}
+            </span>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+))}
+
+<style>
+  section { margin-top: 32px; }
+  h2.k { margin: 0 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  ul { margin: 0; padding: 0; list-style: none; }
+  li { display: grid; grid-template-columns: 4.5rem 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  time { padding-top: 6px; }
+  .title { font-size: 1.375rem; line-height: 1.3; }
+  p { margin: 4px 0 6px; }
+  .tags a, .tags a:visited { color: inherit; }
+  @media (max-width: 575.98px) {
+    li { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>

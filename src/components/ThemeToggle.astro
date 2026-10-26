@@ -1,0 +1,30 @@
+---
+import Icon from './Icon.astro';
+---
+
+<button class="theme-toggle" type="button" aria-label="Toggle dark theme">
+  <Icon name="moon" class="moon" />
+  <Icon name="sun" class="sun" />
+</button>
+
+<script>
+  // The masthead renders this toggle on every page, so the shared motion kit loads from here.
+  import '../scripts/motion';
+</script>
+
+<style>
+  .theme-toggle {
+    display: grid;
+    place-items: center;
+    padding: 4px;
+    border: 0;
+    background: none;
+    color: var(--fg);
+    cursor: pointer;
+  }
+  .theme-toggle:hover { color: var(--fg-strong); }
+  /* Moon offers dark while light; sun offers light while dark. */
+  .theme-toggle :global(.sun),
+  :global(html[data-theme="dark"]) .theme-toggle :global(.moon) { display: none; }
+  :global(html[data-theme="dark"]) .theme-toggle :global(.sun) { display: block; }
+</style>

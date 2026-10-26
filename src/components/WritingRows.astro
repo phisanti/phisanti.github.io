@@ -1,0 +1,61 @@
+---
+import { isoDay, plainText, postUrl, shortDate, type Post } from '../lib/posts';
+
+interface Props {
+  posts: Post[]; // newest first
+}
+
+const { posts } = Astro.props;
+---
+
+<ul>
+  {posts.map((post) => (
+    <li>
+      <a class="row" href={postUrl(post)}>
+        <time class="k" datetime={isoDay(post.data.date)}>{shortDate(post.data.date)}</time>
+        <div>
+          <h3>{post.data.title}</h3>
+          <p>{plainText(post.data.excerpt)}</p>
+        </div>
+        <span class="ar" aria-hidden="true">→</span>
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  ul { margin: 0; padding: 0; list-style: none; }
+  .row, .row:visited { color: inherit; background: none; }
+  .row {
+    display: grid;
+    grid-template-columns: 140px 1fr 40px;
+    align-items: baseline;
+    gap: 24px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .row:focus-visible { outline-offset: 4px; border-radius: 2px; }
+  h3 {
+    margin-bottom: 4px;
+    font-size: 1.5rem;
+    line-height: 1.22;
+    transition: transform var(--dur-card) var(--ease-out);
+  }
+  p { margin: 0; font-size: 1.0625rem; line-height: 1.5; }
+  .ar {
+    justify-self: end;
+    color: var(--accent);
+    font-size: 1.375rem;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity .2s ease, transform var(--dur-card) var(--ease-out);
+  }
+  .row:hover h3, .row:focus-visible h3 { transform: translateX(4px); }
+  .row:hover .ar, .row:focus-visible .ar { opacity: 1; transform: none; }
+
+  @media (max-width: 767.98px) {
+    .row { grid-template-columns: 1fr; gap: 2px; }
+    .ar { display: none; }
+    h3 { font-size: 1.25rem; }
+  }
+</style>
