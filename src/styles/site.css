@@ -102,3 +102,7 @@ pre {
 
 /* A linked image alone in a paragraph is a logo badge, not a figure. */
 .prose p > a:only-child > img { display: block; max-width: 220px; height: auto; margin: 0 auto; }
+
+/* Theme pairs: images named *_light.* / *_dark.* show only in their own theme. */
+html:not([data-theme="dark"]) .prose :is(figure, p):has(img[src*="_dark."]),
+html[data-theme="dark"] .prose :is(figure, p):has(img[src*="_light."]) { display: none; }

@@ -16,7 +16,7 @@ const fontFile = (name: string) => readFile(path.resolve('node_modules/@fontsour
 export const ogKey = (post: Post) => post.id;
 
 /**
- * The first local figure in the post body, else the front-matter cover, else nothing.
+ * The front-matter cover, else the first local figure in the post body, else nothing.
  * HTML comments, fenced code and linked images (logo badges) are skipped, and a
  * path that does not exist on disk is ignored rather than failing the build.
  */
@@ -27,7 +27,7 @@ function firstFigure(post: Post): string | undefined {
   const local = body.match(/(?<!\[)!\[[^\]]*\]\(\.\/([^)\s]+)/)?.[1];
   // Image metadata keeps its source path on a non-enumerable `fsPath`; `src` is a build URL.
   const cover = (post.data.cover as { fsPath?: string } | undefined)?.fsPath;
-  return [local && path.resolve(path.dirname(post.filePath!), local), cover].find(
+  return [cover, local && path.resolve(path.dirname(post.filePath!), local)].find(
     (file): file is string => !!file && existsSync(file),
   );
 }

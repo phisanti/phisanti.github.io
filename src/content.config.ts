@@ -21,6 +21,8 @@ const writing = defineCollection({
         .optional(),
       draft: z.boolean().default(false),
       cover: image().optional(),
+      // Optional dark-theme twin of the cover (shown as a decorative backdrop on essays).
+      coverDark: image().optional(),
     }),
 });
 

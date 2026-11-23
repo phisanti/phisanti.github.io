@@ -1,5 +1,6 @@
 ---
 import type { MarkdownHeading } from 'astro';
+import { getImage } from 'astro:assets';
 import Base from './Base.astro';
 import ReadingProgress from '../components/ReadingProgress.astro';
 import Toc from '../components/Toc.astro';
@@ -16,7 +17,11 @@ interface Props {
 }
 
 const { post, headings, prev, related } = Astro.props;
-const { title, date, excerpt, tags } = post.data;
+const { title, date, excerpt, tags, cover, coverDark } = post.data;
+// Cover = decorative "ghost" backdrop behind the top of the page; coverDark is its dark-theme twin.
+const ghost = async (src: typeof cover) => (src ? (await getImage({ src, width: 1600, format: 'webp' })).src : undefined);
+const coverSrc = await ghost(cover);
+const coverDarkSrc = await ghost(coverDark);
 const dek = plainText(excerpt);
 const url = new URL(Astro.url.pathname, Astro.site).href;
 const share = {
@@ -29,6 +34,12 @@ const sharedTag = related?.data.tags.find((tag) => tags.includes(tag));
 <Base title={`${title} · Santiago Cano-Muniz`} description={dek} image={`/og/${ogKey(post)}.png`}>
   <ReadingProgress />
   <div class="essay">
+    {coverSrc && (
+      <div class:list={['ghost', coverDarkSrc && 'has-dark']} aria-hidden="true">
+        <div class="ghost-img ghost-light" style={`background-image: url(${coverSrc})`}></div>
+        {coverDarkSrc && <div class="ghost-img ghost-dark" style={`background-image: url(${coverDarkSrc})`}></div>}
+      </div>
+    )}
     <Toc headings={headings} />
     <article>
       <header>
@@ -58,6 +69,8 @@ const sharedTag = related?.data.tags.find((tag) => tags.includes(tag));
 
 <style>
   .essay {
+    position: relative;
+    isolation: isolate;
     display: grid;
     grid-template-columns: 1fr min(44rem, calc(100% - 40px)) 1fr;
     padding-top: 64px;
@@ -95,6 +108,29 @@ const sharedTag = related?.data.tags.find((tag) => tags.includes(tag));
   }
   .share button:hover { color: var(--link-hover); }
 
+  /* Ghost cover: full-width, faint, strongest in the gutters, fading out before the body text. */
+  .ghost {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 620px;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .ghost-img {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: 70% 50%;
+    opacity: .55;
+    -webkit-mask-image: linear-gradient(90deg, #000 0 18%, rgba(0, 0, 0, .1) 34% 66%, #000 82%), linear-gradient(#000 55%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(90deg, #000 0 18%, rgba(0, 0, 0, .1) 34% 66%, #000 82%), linear-gradient(#000 55%, transparent);
+    mask-composite: intersect;
+  }
+  :global(html[data-theme="dark"]) .ghost-img { opacity: .45; }
+  :global(html[data-theme="dark"]) .has-dark .ghost-light,
+  :global(html:not([data-theme="dark"])) .ghost-dark { display: none; }
+
   .prose :global(p) { margin: 22px 0; }
   .prose :global(h2) { margin: 40px 0 4px; font-size: 1.9375rem; line-height: 1.2; scroll-margin-top: 24px; }
   .prose :global(h3) { margin: 32px 0 4px; font-size: 1.5rem; line-height: 1.25; font-style: var(--h3-style); color: var(--h3); }
@@ -107,6 +143,12 @@ const sharedTag = related?.data.tags.find((tag) => tags.includes(tag));
 
   @media (max-width: 767.98px) {
     .essay { padding-top: 36px; }
+    .ghost { height: 420px; }
+    .ghost-img, :global(html[data-theme="dark"]) .ghost-img {
+      opacity: .3;
+      -webkit-mask-image: linear-gradient(#000 40%, transparent);
+      mask-image: linear-gradient(#000 40%, transparent);
+    }
     h1 { font-size: 2.25rem; }
     .dek { font-size: 1.25rem; }
     .share { margin-left: 0; }
